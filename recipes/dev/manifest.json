@@ -1,10 +1,17 @@
 {
     "bundles": {
+        "Karser\\Recaptcha3Bundle\\KarserRecaptcha3Bundle": [
+            "all"
+        ],
         "MonsieurBiz\\SyliusAntiSpamPlugin\\MonsieurBizSyliusAntiSpamPlugin": [
             "all"
         ]
     },
     "copy-from-recipe": {
         "config/": "%CONFIG_DIR%/"
+    },
+    "env": {
+        "GOOGLE_RECAPTCHA_SITE_KEY": "",
+        "GOOGLE_RECAPTCHA_SECRET": ""
     }
 }
