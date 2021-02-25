@@ -28,5 +28,16 @@ This plugins adds captcha and allows you to manage your spams.
 
 ## Contributing
 
-You can open an issue or a Pull Request if you want! 😘  
+You can open an Issue or a Pull Request if you want! 😘  
 Thank you!
+
+## Sponsors
+
+This plugin is sponsored by:
+
+- [Épices Rœllinger](https://www.epices-roellinger.com/)
+- [Monsieur Biz](https://monsieurbiz.com/)
+
+## License
+
+This plugin is completely free and released under the [MIT License](LICENSE.txt).
