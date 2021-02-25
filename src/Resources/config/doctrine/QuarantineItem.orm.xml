@@ -5,6 +5,9 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO"/>
         </id>
+        <indexes>
+            <index name="email" columns="email"/>
+        </indexes>
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
         </field>
@@ -14,6 +17,7 @@
         <one-to-one field="customer" target-entity="Sylius\Component\Customer\Model\CustomerInterface" inversed-by="quarantineItem">
             <join-column name="customer_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
         </one-to-one>
+        <field name="email" column="email" type="string" nullable="false" length="255" />
         <field name="reasonCode" column="reason_code" type="string" nullable="false" length="255" />
     </entity>
 </doctrine-mapping>

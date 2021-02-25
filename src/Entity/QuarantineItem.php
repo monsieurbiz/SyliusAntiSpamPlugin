@@ -33,6 +33,11 @@ class QuarantineItem implements QuarantineItemInterface
     /**
      * @var string|null
      */
+    private ?string $email = null;
+
+    /**
+     * @var string|null
+     */
     private ?string $reasonCode = null;
 
     /**
@@ -57,6 +62,22 @@ class QuarantineItem implements QuarantineItemInterface
     public function setCustomer(?CustomerInterface $customer): void
     {
         $this->customer = $customer;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
     }
 
     /**
