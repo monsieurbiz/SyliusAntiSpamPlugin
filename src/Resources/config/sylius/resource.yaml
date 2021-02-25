@@ -1,0 +1,5 @@
+sylius_resource:
+    resources:
+        monsieurbiz_anti_spam.quarantine_item:
+            classes:
+                model: MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItem
