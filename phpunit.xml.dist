@@ -51,5 +51,12 @@
         <!--        <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/public.pem"/>-->
         <!--        <env name="JWT_PASSPHRASE" value="8d17d1cb8344b23ee4645e6d6aec8d3b"/>-->
         <!--        &lt;!&ndash; ###- lexik/jwt-authentication-bundle ### &ndash;&gt;-->
+
+        <!-- ###+ google/recaptcha ### -->
+        <!-- To use Google Recaptcha, you must register a site on Recaptcha's admin panel: -->
+        <!-- https://www.google.com/recaptcha/admin -->
+        <env name="GOOGLE_RECAPTCHA_SITE_KEY" value=""/>
+        <env name="GOOGLE_RECAPTCHA_SECRET" value=""/>
+        <!-- ###- google/recaptcha ### -->
     </php>
 </phpunit>
