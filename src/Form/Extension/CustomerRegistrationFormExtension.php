@@ -13,19 +13,19 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAntiSpamPlugin\Form\Extension;
 
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3 as Recaptcha3Constraint;
+use Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerRegistrationType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
-use Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerRegistrationType;
-use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3 as Recaptcha3Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
-use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 
 final class CustomerRegistrationFormExtension extends AbstractTypeExtension
 {
     /**
      * {@inheritDoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('captcha', Recaptcha3Type::class, [
             'mapped' => false,
