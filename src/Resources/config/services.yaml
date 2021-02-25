@@ -8,3 +8,6 @@ services:
         resource: '../../*'
         exclude: '../../{Entity,Migrations}'
 
+    MonsieurBiz\SyliusAntiSpamPlugin\Form\Extension\:
+        resource: '../../Form/Extension'
+        tags: ['form.type_extension']
