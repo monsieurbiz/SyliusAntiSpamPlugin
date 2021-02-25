@@ -2,3 +2,4 @@ imports:
     - { resource: 'app/doctrine_migrations.yaml' }
     - { resource: 'sylius/resource.yaml' }
     - { resource: "sylius/ui.yaml" }
+    - { resource: "sylius/grid.yaml" }

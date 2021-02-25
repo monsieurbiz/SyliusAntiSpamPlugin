@@ -1,0 +1,18 @@
+sylius_grid:
+    grids:
+        monsieurbiz_anti_spam_admin_quarantine_item:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItem
+            fields:
+                email:
+                    type: string
+                    label: sylius.ui.email
+                createdAt:
+                    type: datetime
+                    label: sylius.ui.created_at
+            filters:
+                email:
+                    type: string
+                    label: sylius.ui.email

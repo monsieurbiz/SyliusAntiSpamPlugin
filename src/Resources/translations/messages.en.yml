@@ -1,3 +1,7 @@
 monsieurbiz_anti_spam:
     form_captcha:
         message: This site is protected by reCAPTCHA and the Google <a href="%privacy_link%" target="_blank" rel="noopener noreferer">Privacy Policy</a> and <a href="%terms_link%" target="_blank" rel="noopener noreferer">Terms of Service</a> apply.
+    ui:
+        quarantine: Quarantine
+        quarantine_items: Quarantine
+        manage_emails_in_quarantine: Manage emails in quarantine

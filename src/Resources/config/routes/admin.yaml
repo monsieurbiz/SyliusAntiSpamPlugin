@@ -1,0 +1,14 @@
+monsieurbiz_anti_spam_admin_quarantine_item:
+    resource: |
+        alias: monsieurbiz_anti_spam.quarantine_item
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        only: ['index']
+        redirect: update
+        grid: monsieurbiz_anti_spam_admin_quarantine_item
+        vars:
+            all:
+                subheader: monsieurbiz_anti_spam.ui.manage_emails_in_quarantine
+            index:
+                icon: 'medkit'
+    type: sylius.resource

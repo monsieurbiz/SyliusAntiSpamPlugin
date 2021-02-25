@@ -7,3 +7,7 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\:
         resource: '../../*'
         exclude: '../../{Entity,Migrations}'
+
+    MonsieurBiz\SyliusAntiSpamPlugin\Menu\AdminMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems, priority: 100 }
