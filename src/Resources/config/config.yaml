@@ -1,5 +1,4 @@
 imports:
     - { resource: 'app/doctrine_migrations.yaml' }
     - { resource: 'sylius/resource.yaml' }
-    - { resource: "karser/recaptcha3.yaml" }
     - { resource: "sylius/ui.yaml" }

@@ -46,6 +46,9 @@
     "coduo/php-to-string": {
         "version": "3.1.0"
     },
+    "composer/package-versions-deprecated": {
+        "version": "1.11.99.1"
+    },
     "composer/semver": {
         "version": "3.2.2"
     },
@@ -236,6 +239,15 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.42"
     },
+    "google/recaptcha": {
+        "version": "1.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.1",
+            "ref": "d087df3e087f50da3955f2def05079380da5894b"
+        }
+    },
     "guzzlehttp/guzzle": {
         "version": "6.5.5"
     },
@@ -298,6 +310,18 @@
     },
     "justinrainbow/json-schema": {
         "version": "5.2.10"
+    },
+    "karser/karser-recaptcha3-bundle": {
+        "version": "0.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.1",
+            "ref": "107a3a758fe331292f1c23c13d73c66cb3a268c7"
+        },
+        "files": [
+            "tests/Application/config/packages/karser_recaptcha3.yaml"
+        ]
     },
     "knplabs/gaufrette": {
         "version": "v0.8.3"

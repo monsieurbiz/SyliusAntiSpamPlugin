@@ -52,11 +52,10 @@
         <!--        <env name="JWT_PASSPHRASE" value="8d17d1cb8344b23ee4645e6d6aec8d3b"/>-->
         <!--        &lt;!&ndash; ###- lexik/jwt-authentication-bundle ### &ndash;&gt;-->
 
-        <!-- ###+ google/recaptcha ### -->
-        <!-- To use Google Recaptcha, you must register a site on Recaptcha's admin panel: -->
-        <!-- https://www.google.com/recaptcha/admin -->
-        <env name="GOOGLE_RECAPTCHA_SITE_KEY" value=""/>
-        <env name="GOOGLE_RECAPTCHA_SECRET" value=""/>
-        <!-- ###- google/recaptcha ### -->
+        <!-- ###+ karser/karser-recaptcha3-bundle ### -->
+        <!-- Get your API key and secret from https://g.co/recaptcha/v3 -->
+        <env name="RECAPTCHA3_KEY" value="my_site_key"/>
+        <env name="RECAPTCHA3_SECRET" value="my_secret"/>
+        <!-- ###- karser/karser-recaptcha3-bundle ### -->
     </php>
 </phpunit>
