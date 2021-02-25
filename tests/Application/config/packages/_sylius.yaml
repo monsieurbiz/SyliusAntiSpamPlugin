@@ -22,3 +22,8 @@ sylius_theme:
             directories:
                 - "%kernel.project_dir%/themes"
 
+sylius_customer:
+    resources:
+        customer:
+            classes:
+                model: App\Entity\Customer
