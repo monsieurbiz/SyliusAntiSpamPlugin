@@ -22,6 +22,10 @@ This plugins adds captcha and allows you to manage your spams.
 
 ⚙️ To Be Defined.
 
+<!--
+1. Use the trait `\MonsieurBiz\SyliusAntiSpamPlugin\Entity\CustomerQuarantineItemAwareTrait` in your Customer entity. 
+-->
+
 ## Contributing
 
 You can open an issue or a Pull Request if you want! 😘  
