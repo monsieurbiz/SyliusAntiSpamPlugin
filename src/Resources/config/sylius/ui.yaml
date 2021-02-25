@@ -1,0 +1,10 @@
+sylius_ui:
+    events:
+        sylius.shop.register.form:
+            blocks:
+                monsieurbiz_anti_spam_shop_register:
+                    template: '@MonsieurBizSyliusAntiSpamPlugin/Shop/form_captcha.html.twig'
+        sylius.shop.contact.request.form:
+            blocks:
+                monsieurbiz_anti_spam_shop_contact:
+                    template: '@MonsieurBizSyliusAntiSpamPlugin/Shop/form_captcha.html.twig'
