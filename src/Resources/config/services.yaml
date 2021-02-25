@@ -1,1 +1,9 @@
-# Add services
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    MonsieurBiz\SyliusAntiSpamPlugin\:
+        resource: '../../*'
+        exclude: '../../{Entity,Migrations}'

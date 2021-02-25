@@ -1,0 +1,8 @@
+{{ form_row(form.captcha, sylius_test_form_attribute('captcha')) }}
+{% set errors = form_errors(form) %}
+{% if errors is not empty %}
+    {{ errors|raw }}<br />
+{% endif %}
+<div class="ui info message">
+  {{ 'monsieurbiz_antispam_plugin.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
+</div>

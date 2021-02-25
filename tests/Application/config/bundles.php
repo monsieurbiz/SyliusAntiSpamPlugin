@@ -61,5 +61,6 @@ return [
     //Sylius\Bundle\ApiBundle\SyliusApiBundle::class => ['all' => true],
     //Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     SyliusLabs\DoctrineMigrationsExtraBundle\SyliusLabsDoctrineMigrationsExtraBundle::class => ['all' => true],
+    Karser\Recaptcha3Bundle\KarserRecaptcha3Bundle::class => ['all' => true],
     MonsieurBiz\SyliusAntiSpamPlugin\MonsieurBizSyliusAntiSpamPlugin::class => ['all' => true],
 ];
