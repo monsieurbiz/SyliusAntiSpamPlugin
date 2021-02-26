@@ -9,3 +9,7 @@ services:
         exclude: '../../{Entity,Migrations}'
 
     monsieurbiz.anti_spam.validators.registry: '@MonsieurBiz\SyliusAntiSpamPlugin\Registry\ValidatorsRegistry' 
+
+    MonsieurBiz\SyliusAntiSpamPlugin\Email\Sender:
+        decorates: 'sylius.email_sender'
+        arguments: ['@MonsieurBiz\SyliusAntiSpamPlugin\Email\Sender.inner']
