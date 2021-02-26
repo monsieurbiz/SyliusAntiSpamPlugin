@@ -1,0 +1,10 @@
+sylius_grid:
+    grids:
+        sylius_admin_customer:
+            fields:
+                quarantine:
+                    type: twig
+                    label: monsieurbiz_anti_spam.ui.quarantine
+                    path: quarantineItem
+                    options:
+                        template: '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Field/quarantine_item.html.twig'
