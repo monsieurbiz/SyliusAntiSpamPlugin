@@ -94,4 +94,16 @@ class QuarantineItem implements QuarantineItemInterface
     {
         $this->email = $email;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isQuarantined(?int $level = null): bool
+    {
+        if (null !== $level) {
+            return $level === $this->getLevel();
+        }
+
+        return true;
+    }
 }
