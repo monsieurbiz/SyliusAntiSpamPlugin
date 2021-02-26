@@ -17,5 +17,10 @@ use MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemAwareInterface;
 
 interface HealthCheckerInterface
 {
+    /**
+     * @param QuarantineItemAwareInterface $object
+     *
+     * @return void
+     */
     public function check(QuarantineItemAwareInterface $object): void;
 }

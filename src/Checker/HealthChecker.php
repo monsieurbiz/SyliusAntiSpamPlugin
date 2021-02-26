@@ -20,7 +20,14 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 class HealthChecker implements HealthCheckerInterface
 {
+    /**
+     * @var ValidatorsRegistryInterface
+     */
     private ValidatorsRegistryInterface $validatorsRegistry;
+
+    /**
+     * @var FactoryInterface
+     */
     private FactoryInterface $quarantineItemFactory;
 
     /**
@@ -67,7 +74,6 @@ class HealthChecker implements HealthCheckerInterface
             if (!$validator->isEligible($object)) {
                 continue;
             }
-
             $reasonCodes = array_merge($reasonCodes, $validator->validate($object));
         }
 
