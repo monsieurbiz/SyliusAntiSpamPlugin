@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAntiSpamPlugin\DependencyInjection;
 
+use MonsieurBiz\SyliusAntiSpamPlugin\Validator\ValidatorInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -25,6 +26,10 @@ final class MonsieurBizSyliusAntiSpamExtension extends Extension
      */
     public function load(array $config, ContainerBuilder $container): void
     {
+        $container
+            ->registerForAutoconfiguration(ValidatorInterface::class)
+            ->addTag('monsieurbiz_anti_spam.validator')
+        ;
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
     }

@@ -7,3 +7,5 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\:
         resource: '../../*'
         exclude: '../../{Entity,Migrations}'
+
+    monsieurbiz.anti_spam.validators.registry: '@MonsieurBiz\SyliusAntiSpamPlugin\Registry\ValidatorsRegistry' 
