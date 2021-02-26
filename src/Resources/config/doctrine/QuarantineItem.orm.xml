@@ -5,6 +5,9 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO"/>
         </id>
+        <indexes>
+            <index columns="email" name="email" />
+        </indexes>
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
         </field>
@@ -13,5 +16,6 @@
         </field>
         <field name="reasonCodes" column="reason_codes" type="array" nullable="false" />
         <field name="level" column="level" type="integer" nullable="false" />
+        <field name="email" column="email" type="string" nullable="false" length="255" />
     </entity>
 </doctrine-mapping>

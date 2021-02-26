@@ -3,3 +3,4 @@ sylius_resource:
         monsieurbiz_anti_spam.quarantine_item:
             classes:
                 model: MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItem
+                repository: MonsieurBiz\SyliusAntiSpamPlugin\Repository\QuarantineItemRepository

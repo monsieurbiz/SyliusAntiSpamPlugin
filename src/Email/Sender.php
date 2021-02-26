@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAntiSpamPlugin\Email;
 
+use MonsieurBiz\SyliusAntiSpamPlugin\Repository\QuarantineItemRepositoryInterface;
 use Sylius\Component\Mailer\Sender\SenderInterface;
 
 final class Sender implements SenderInterface
@@ -23,13 +24,20 @@ final class Sender implements SenderInterface
     private SenderInterface $inner;
 
     /**
+     * @var QuarantineItemRepositoryInterface
+     */
+    private QuarantineItemRepositoryInterface $quarantineItemRepository;
+
+    /**
      * Sender constructor.
      *
      * @param SenderInterface $inner
+     * @param QuarantineItemRepositoryInterface $quarantineItemRepository
      */
-    public function __construct(SenderInterface $inner)
+    public function __construct(SenderInterface $inner, QuarantineItemRepositoryInterface $quarantineItemRepository)
     {
         $this->inner = $inner;
+        $this->quarantineItemRepository = $quarantineItemRepository;
     }
 
     /**
@@ -41,6 +49,15 @@ final class Sender implements SenderInterface
      */
     public function send(string $code, array $recipients, array $data = [], array $attachments = [], array $replyTo = []): void
     {
-        $this->inner->send($code, $recipients, $data, $attachments, $replyTo);
+        $quarantineItems = $this->quarantineItemRepository->findAllByEmails($recipients);
+        foreach ($quarantineItems as $quarantineItem) {
+            if ($quarantineItem->isQuarantined()) {
+                $index = array_search($quarantineItem->getEmail(), $recipients, true);
+                unset($recipients[$index]);
+            }
+        }
+        if (!empty($recipients)) {
+            $this->inner->send($code, $recipients, $data, $attachments, $replyTo);
+        }
     }
 }

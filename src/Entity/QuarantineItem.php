@@ -35,6 +35,11 @@ class QuarantineItem implements QuarantineItemInterface
     private ?int $level = null;
 
     /**
+     * @var string|null
+     */
+    private ?string $email = null;
+
+    /**
      * {@inheritdoc}
      */
     public function getId(): ?int
@@ -59,7 +64,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * @return int|null
+     * {@inheritdoc}
      */
     public function getLevel(): ?int
     {
@@ -67,10 +72,38 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * @param int|null $level
+     * {@inheritdoc}
      */
     public function setLevel(?int $level): void
     {
         $this->level = $level;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isQuarantined(?int $level = null): bool
+    {
+        if (null !== $level) {
+            return $level === $this->getLevel();
+        }
+
+        return true;
     }
 }
