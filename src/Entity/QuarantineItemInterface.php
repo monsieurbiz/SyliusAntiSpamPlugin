@@ -18,6 +18,10 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 interface QuarantineItemInterface extends ResourceInterface
 {
+    public const LEVEL_PROVEN = 16;
+    public const LEVEL_LIKELY = 8;
+    public const LEVEL_SUSPECTED = 4;
+
     /**
      * @return CustomerInterface|null
      */

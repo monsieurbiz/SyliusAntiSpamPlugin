@@ -15,5 +15,6 @@
             <join-column name="customer_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
         </one-to-one>
         <field name="reasonCode" column="reason_code" type="string" nullable="false" length="255" />
+        <field name="level" column="level" type="integer" nullable="false" />
     </entity>
 </doctrine-mapping>

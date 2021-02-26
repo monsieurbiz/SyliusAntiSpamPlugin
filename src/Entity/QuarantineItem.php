@@ -36,6 +36,11 @@ class QuarantineItem implements QuarantineItemInterface
     private ?string $reasonCode = null;
 
     /**
+     * @var int|null
+     */
+    private ?int $level = null;
+
+    /**
      * {@inheritdoc}
      */
     public function getId(): ?int
@@ -73,5 +78,21 @@ class QuarantineItem implements QuarantineItemInterface
     public function setReasonCode(?string $reasonCode): void
     {
         $this->reasonCode = $reasonCode;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getLevel(): ?int
+    {
+        return $this->level;
+    }
+
+    /**
+     * @param int|null $level
+     */
+    public function setLevel(?int $level): void
+    {
+        $this->level = $level;
     }
 }
