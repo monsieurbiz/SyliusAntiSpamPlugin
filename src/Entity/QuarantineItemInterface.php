@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAntiSpamPlugin\Entity;
 
-use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 interface QuarantineItemInterface extends ResourceInterface
@@ -21,16 +20,6 @@ interface QuarantineItemInterface extends ResourceInterface
     public const LEVEL_PROVEN = 16;
     public const LEVEL_LIKELY = 8;
     public const LEVEL_SUSPECTED = 4;
-
-    /**
-     * @return CustomerInterface|null
-     */
-    public function getCustomer(): ?CustomerInterface;
-
-    /**
-     * @param CustomerInterface|null $customer
-     */
-    public function setCustomer(?CustomerInterface $customer): void;
 
     /**
      * @return string|null

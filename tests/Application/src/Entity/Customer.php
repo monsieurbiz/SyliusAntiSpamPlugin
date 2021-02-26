@@ -14,14 +14,15 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use MonsieurBiz\SyliusAntiSpamPlugin\Entity\CustomerQuarantineItemAwareTrait;
+use MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemAwareInterface;
+use MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemAwareTrait;
 use Sylius\Component\Core\Model\Customer as SyliusCustomer;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="sylius_customer")
  */
-class Customer extends SyliusCustomer
+class Customer extends SyliusCustomer implements QuarantineItemAwareInterface
 {
-    use CustomerQuarantineItemAwareTrait;
+    use QuarantineItemAwareTrait;
 }
