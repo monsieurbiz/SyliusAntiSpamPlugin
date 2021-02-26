@@ -25,9 +25,9 @@ class QuarantineItem implements QuarantineItemInterface
     private ?int $id = null;
 
     /**
-     * @var string|null
+     * @var string[]|null
      */
-    private ?string $reasonCode = null;
+    private ?array $reasonCodes = null;
 
     /**
      * @var int|null
@@ -45,17 +45,17 @@ class QuarantineItem implements QuarantineItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getReasonCode(): ?string
+    public function getReasonCodes(): ?array
     {
-        return $this->reasonCode;
+        return $this->reasonCodes;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setReasonCode(?string $reasonCode): void
+    public function setReasonCodes(?array $reasonCodes): void
     {
-        $this->reasonCode = $reasonCode;
+        $this->reasonCodes = $reasonCodes;
     }
 
     /**

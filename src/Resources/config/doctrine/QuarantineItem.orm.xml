@@ -11,7 +11,7 @@
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
             <gedmo:timestampable on="update"/>
         </field>
-        <field name="reasonCode" column="reason_code" type="string" nullable="false" length="255" />
+        <field name="reasonCodes" column="reason_codes" type="array" nullable="false" />
         <field name="level" column="level" type="integer" nullable="false" />
     </entity>
 </doctrine-mapping>

@@ -22,12 +22,12 @@ interface QuarantineItemInterface extends ResourceInterface
     public const LEVEL_SUSPECTED = 4;
 
     /**
-     * @return string|null
+     * @return string[]|null
      */
-    public function getReasonCode(): ?string;
+    public function getReasonCodes(): ?array;
 
     /**
-     * @param string|null $reasonCode
+     * @param string[]|null $reasonCodes
      */
-    public function setReasonCode(?string $reasonCode): void;
+    public function setReasonCodes(?array $reasonCodes): void;
 }
