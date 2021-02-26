@@ -22,25 +22,9 @@ final class ValidatorsRegistry implements ValidatorsRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function addValidator(string $code, ValidatorInterface $validator): void
+    public function addValidator(ValidatorInterface $validator): void
     {
-        $this->validators[$code] = $validator;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasValidator(string $code): bool
-    {
-        return \array_key_exists($code, $this->validators);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getValidator(string $code): ?ValidatorInterface
-    {
-        return $this->hasValidator($code) ? $this->validators[$code] : null;
+        $this->validators[] = $validator;
     }
 
     /**
