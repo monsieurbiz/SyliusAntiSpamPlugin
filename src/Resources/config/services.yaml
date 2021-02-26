@@ -13,3 +13,8 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\Email\Sender:
         decorates: 'sylius.email_sender'
         arguments: ['@MonsieurBiz\SyliusAntiSpamPlugin\Email\Sender.inner']
+
+    MonsieurBiz\SyliusAntiSpamPlugin\EventListener\QuarantineItemAwareListener:
+        tags:
+            - name: 'doctrine.event_listener'
+              event: 'postPersist'

@@ -18,24 +18,9 @@ use MonsieurBiz\SyliusAntiSpamPlugin\Validator\ValidatorInterface;
 interface ValidatorsRegistryInterface
 {
     /**
-     * @param string $code
      * @param ValidatorInterface $validator
      */
-    public function addValidator(string $code, ValidatorInterface $validator): void;
-
-    /**
-     * @param string $code
-     *
-     * @return bool
-     */
-    public function hasValidator(string $code): bool;
-
-    /**
-     * @param string $code
-     *
-     * @return ValidatorInterface|null
-     */
-    public function getValidator(string $code): ?ValidatorInterface;
+    public function addValidator(ValidatorInterface $validator): void;
 
     /**
      * @return ValidatorInterface[]
