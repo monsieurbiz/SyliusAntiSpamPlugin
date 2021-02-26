@@ -1,0 +1,9 @@
+monsieurbiz_anti_spam:
+    form_captcha:
+        message: This site is protected by reCAPTCHA and the Google <a href="%privacy_link%" target="_blank" rel="noopener noreferer">Privacy Policy</a> and <a href="%terms_link%" target="_blank" rel="noopener noreferer">Terms of Service</a> apply.
+    ui:
+        quarantine: Quarantine
+        ok: OK
+        proven: Proven
+        likely: Likely
+        suspected: Suspected

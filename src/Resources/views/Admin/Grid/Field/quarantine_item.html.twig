@@ -1,0 +1,25 @@
+<div class="ui center aligned">
+{% if data is not null and data.isQuarantined() %}
+    {% if data.isQuarantined(constant('MonsieurBiz\\SyliusAntiSpamPlugin\\Entity\\QuarantineItemInterface::LEVEL_PROVEN')) %}
+    <span class="ui red label">
+        <i class="ban icon"></i>
+        {{ "monsieurbiz_anti_spam.ui.proven"|trans }}
+    </span>
+    {% elseif data.isQuarantined(constant('MonsieurBiz\\SyliusAntiSpamPlugin\\Entity\\QuarantineItemInterface::LEVEL_LIKELY')) %}
+    <span class="ui orange label">
+        <i class="ban icon"></i>
+        {{ "monsieurbiz_anti_spam.ui.likely"|trans }}
+    </span>
+    {% elseif data.isQuarantined(constant('MonsieurBiz\\SyliusAntiSpamPlugin\\Entity\\QuarantineItemInterface::LEVEL_SUSPECTED')) %}
+    <span class="ui yellow label">
+        <i class="ban icon"></i>
+        {{ "monsieurbiz_anti_spam.ui.suspected"|trans }}
+    </span>
+    {% endif %}
+{% else %}
+    <span class="ui green label">
+        <i class="check circle outline icon"></i>
+        {{ "monsieurbiz_anti_spam.ui.ok"|trans }}
+    </span>
+{% endif %}
+</div>
