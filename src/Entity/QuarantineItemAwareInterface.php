@@ -24,4 +24,9 @@ interface QuarantineItemAwareInterface
      * @param QuarantineItemInterface|null $quarantineItem
      */
     public function setQuarantineItem(?QuarantineItemInterface $quarantineItem): void;
+
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string;
 }
