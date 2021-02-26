@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAntiSpamPlugin\Entity;
 
-use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 
 class QuarantineItem implements QuarantineItemInterface
@@ -24,11 +23,6 @@ class QuarantineItem implements QuarantineItemInterface
      * @var int|null
      */
     private ?int $id = null;
-
-    /**
-     * @var CustomerInterface|null
-     */
-    private ?CustomerInterface $customer = null;
 
     /**
      * @var string|null
@@ -46,22 +40,6 @@ class QuarantineItem implements QuarantineItemInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCustomer(): ?CustomerInterface
-    {
-        return $this->customer;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setCustomer(?CustomerInterface $customer): void
-    {
-        $this->customer = $customer;
     }
 
     /**

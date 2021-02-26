@@ -15,10 +15,11 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-trait CustomerQuarantineItemAwareTrait
+trait QuarantineItemAwareTrait
 {
     /**
-     * @ORM\OneToOne(targetEntity="\MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface", mappedBy="customer")
+     * @ORM\OneToOne(targetEntity="MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface", fetch="LAZY")
+     * @ORM\JoinColumn(name="quarantine_item_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      *
      * @var QuarantineItemInterface|null
      */
