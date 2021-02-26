@@ -36,4 +36,9 @@ interface ValidatorsRegistryInterface
      * @return ValidatorInterface|null
      */
     public function getValidator(string $code): ?ValidatorInterface;
+
+    /**
+     * @return ValidatorInterface[]
+     */
+    public function getValidators(): array;
 }

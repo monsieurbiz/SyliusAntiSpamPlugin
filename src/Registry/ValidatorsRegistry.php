@@ -42,4 +42,12 @@ final class ValidatorsRegistry implements ValidatorsRegistryInterface
     {
         return $this->hasValidator($code) ? $this->validators[$code] : null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValidators(): array
+    {
+        return $this->validators;
+    }
 }
