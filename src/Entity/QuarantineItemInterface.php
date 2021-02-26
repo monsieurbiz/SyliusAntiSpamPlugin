@@ -40,4 +40,14 @@ interface QuarantineItemInterface extends ResourceInterface
      * @param int|null $level
      */
     public function setLevel(?int $level): void;
+
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string;
+
+    /**
+     * @param string|null $email
+     */
+    public function setEmail(?string $email): void;
 }
