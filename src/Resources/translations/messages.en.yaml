@@ -8,3 +8,9 @@ monsieurbiz_anti_spam:
         likely: Likely
         suspected: Suspected
         the_reasons: "The reasons:"
+    error:
+        missing_captcha_reponse: 'Missing captcha response.'
+        invalid_captcha_score: 'Invalid captcha score.'
+        object_not_customer: 'The given object is not a customer.'
+        customer_first_name_invalid: 'The customer firstname is not valid.'
+        customer_last_name_invalid: 'The customer lastname is not valid.'
