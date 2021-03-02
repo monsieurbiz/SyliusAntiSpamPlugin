@@ -6,9 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "~7.4",
-        "sylius/sylius": "^1.8",
-        "gedmo/doctrine-extensions": "^2.4.12",
-        "phpstan/phpstan-webmozart-assert": "^0.12.7",
+        "sylius/sylius": "~1.8.0",
         "karser/karser-recaptcha3-bundle": "^0.1.16"
     },
     "require-dev": {
@@ -34,6 +32,7 @@
         "phpspec/phpspec": "^6.1",
         "phpstan/phpstan": "0.12.29",
         "phpstan/phpstan-doctrine": "0.12.16",
+        "phpstan/phpstan-webmozart-assert": "^0.12.7",
         "phpunit/phpunit": "^8.5",
         "psalm/plugin-mockery": "^0.3",
         "psr/event-dispatcher": "^1.0",
