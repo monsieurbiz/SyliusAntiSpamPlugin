@@ -44,7 +44,8 @@
         "symfony/dotenv": "^4.4",
         "symfony/flex": "^1.7",
         "symfony/web-profiler-bundle": "^4.4",
-        "phpmd/phpmd": "@stable"
+        "phpmd/phpmd": "@stable",
+        "friendsofsymfony/oauth-server-bundle": "^1.6 || >2.0.0-alpha.0 ^2.0@dev"
     },
     "prefer-stable": true,
     "autoload": {
