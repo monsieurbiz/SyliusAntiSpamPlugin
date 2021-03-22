@@ -95,7 +95,7 @@ test.schema: ## Validate MySQL Schema
 	${CONSOLE} doctrine:schema:validate
 
 test.twig: ## Validate Twig templates
-	${CONSOLE} lint:twig -e prod --no-debug ../../tests/Application/templates/
+	${CONSOLE} lint:twig --no-debug ../../tests/Application/templates/
 
 ###
 ### SYLIUS
