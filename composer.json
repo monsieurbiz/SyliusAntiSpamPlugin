@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "~7.4",
-        "sylius/sylius": "~1.8.0",
+        "sylius/sylius": "^1.8",
         "karser/karser-recaptcha3-bundle": "^0.1.16",
         "gedmo/doctrine-extensions": "^2.4.12 || ^3.0"
     },
