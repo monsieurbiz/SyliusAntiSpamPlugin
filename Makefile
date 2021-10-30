@@ -64,7 +64,7 @@ ${APP_DIR}/node_modules: yarn.install
 ### TEST APPLICATION
 ### ¯¯¯¯¯
 
-application: ${APP_DIR} ${APP_DIR}/docker-compose.yaml ${APP_DIR}/.php-version
+application: .php-version ${APP_DIR} ${APP_DIR}/docker-compose.yaml ${APP_DIR}/.php-version
 
 ${APP_DIR}:
 	(${COMPOSER} create-project --prefer-dist --no-scripts --no-progress --no-install sylius/sylius-standard="${SYLIUS_VERSION}" ${APP_DIR})
