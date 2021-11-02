@@ -18,21 +18,12 @@ use Sylius\Component\Mailer\Sender\SenderInterface;
 
 final class Sender implements SenderInterface
 {
-    /**
-     * @var SenderInterface
-     */
     private SenderInterface $inner;
 
-    /**
-     * @var QuarantineItemRepositoryInterface
-     */
     private QuarantineItemRepositoryInterface $quarantineItemRepository;
 
     /**
      * Sender constructor.
-     *
-     * @param SenderInterface $inner
-     * @param QuarantineItemRepositoryInterface $quarantineItemRepository
      */
     public function __construct(SenderInterface $inner, QuarantineItemRepositoryInterface $quarantineItemRepository)
     {
@@ -40,13 +31,6 @@ final class Sender implements SenderInterface
         $this->quarantineItemRepository = $quarantineItemRepository;
     }
 
-    /**
-     * @param string $code
-     * @param array $recipients
-     * @param array $data
-     * @param array $attachments
-     * @param array $replyTo
-     */
     public function send(string $code, array $recipients, array $data = [], array $attachments = [], array $replyTo = []): void
     {
         $quarantineItems = $this->quarantineItemRepository->findAllByEmails($recipients);

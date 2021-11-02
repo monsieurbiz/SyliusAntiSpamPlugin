@@ -15,18 +15,9 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Entity;
 
 interface QuarantineItemAwareInterface
 {
-    /**
-     * @return QuarantineItemInterface|null
-     */
     public function getQuarantineItem(): ?QuarantineItemInterface;
 
-    /**
-     * @param QuarantineItemInterface|null $quarantineItem
-     */
     public function setQuarantineItem(?QuarantineItemInterface $quarantineItem): void;
 
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string;
 }

@@ -22,7 +22,7 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 final class QuarantineItemRepository extends EntityRepository implements QuarantineItemRepositoryInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function findAllByEmails(array $emails): array
     {

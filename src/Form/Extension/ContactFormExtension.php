@@ -23,7 +23,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 final class ContactFormExtension extends AbstractTypeExtension
 {
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
