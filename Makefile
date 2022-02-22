@@ -21,34 +21,26 @@ up: docker.up server.start ## Up the project (start docker, start symfony server
 stop: server.stop docker.stop ## Stop the project (stop docker, stop symfony server)
 down: server.stop docker.down ## Down the project (removes docker containers, stop symfony server)
 
-reset: docker.down ## Stop docker and remove dependencies
+reset: ## Stop docker and remove dependencies
+	${MAKE} docker.down || true
 	rm -rf ${APP_DIR}/node_modules ${APP_DIR}/yarn.lock
 	rm -rf ${APP_DIR}
 	rm -rf vendor composer.lock
 .PHONY: reset
 
-dependencies: vendor node_modules ## Setup the dependencies
+dependencies: composer.lock node_modules ## Setup the dependencies
 .PHONY: dependencies
 
 .php-version: .php-version.dist
-	cp .php-version.dist .php-version
+	rm -f .php-version
+	ln -s .php-version.dist .php-version
 
 php.ini: php.ini.dist
-	cp php.ini.dist php.ini
-
-vendor: composer.lock ## Install the PHP dependencies using composer
-ifdef GITHUB_ACTIONS
-	${COMPOSER} install --prefer-dist
-else
-	${COMPOSER} install --prefer-source
-endif
+	rm -f php.ini
+	ln -s php.ini.dist php.ini
 
 composer.lock: composer.json
-ifdef GITHUB_ACTIONS
-	${COMPOSER} update --prefer-dist
-else
-	${COMPOSER} update --prefer-source
-endif
+	${COMPOSER} install --no-scripts --no-plugins
 
 yarn.install: ${APP_DIR}/yarn.lock
 
@@ -85,7 +77,7 @@ setup_application:
 ${APP_DIR}/docker-compose.yaml:
 	rm -f ${APP_DIR}/docker-compose.yml
 	rm -f ${APP_DIR}/docker-compose.yaml
-	cp docker-compose.yaml.dist ${APP_DIR}/docker-compose.yaml
+	ln -s ../../docker-compose.yaml.dist ${APP_DIR}/docker-compose.yaml
 .PHONY: ${APP_DIR}/docker-compose.yaml
 
 ${APP_DIR}/.php-version: .php-version
@@ -95,7 +87,15 @@ ${APP_DIR}/php.ini: php.ini
 	(cd ${APP_DIR} && ln -sf ../../php.ini)
 
 apply_dist:
-	cp -Rv dist/* ${APP_DIR}
+	ROOT_DIR=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST)))); \
+	for i in `cd dist && find . -type f`; do \
+		FILE_PATH=`echo $$i | sed 's|./||'`; \
+		FOLDER_PATH=`dirname $$FILE_PATH`; \
+		echo $$FILE_PATH; \
+		(cd ${APP_DIR} && rm -f $$FILE_PATH); \
+		(cd ${APP_DIR} && mkdir -p $$FOLDER_PATH); \
+		(cd ${APP_DIR} && ln -s $$ROOT_DIR/dist/$$FILE_PATH $$FILE_PATH); \
+    done
 
 ###
 ### TESTS
