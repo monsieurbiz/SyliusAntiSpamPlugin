@@ -20,7 +20,7 @@ final class ValidatorsRegistry implements ValidatorsRegistryInterface
     private array $validators = [];
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function addValidator(ValidatorInterface $validator): void
     {
@@ -28,7 +28,7 @@ final class ValidatorsRegistry implements ValidatorsRegistryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getValidators(): array
     {

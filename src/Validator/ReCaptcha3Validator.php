@@ -16,7 +16,7 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Validator;
 final class ReCaptcha3Validator implements ValidatorInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @TODO implement
@@ -27,7 +27,7 @@ final class ReCaptcha3Validator implements ValidatorInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @TODO implement

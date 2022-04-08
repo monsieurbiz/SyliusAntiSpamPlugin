@@ -20,20 +20,10 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 class HealthChecker implements HealthCheckerInterface
 {
-    /**
-     * @var ValidatorsRegistryInterface
-     */
     private ValidatorsRegistryInterface $validatorsRegistry;
 
-    /**
-     * @var FactoryInterface
-     */
     private FactoryInterface $quarantineItemFactory;
 
-    /**
-     * @param ValidatorsRegistryInterface $validatorsRegistry
-     * @param FactoryInterface $quarantineItemFactory
-     */
     public function __construct(
         ValidatorsRegistryInterface $validatorsRegistry,
         FactoryInterface $quarantineItemFactory
@@ -42,11 +32,6 @@ class HealthChecker implements HealthCheckerInterface
         $this->quarantineItemFactory = $quarantineItemFactory;
     }
 
-    /**
-     * @param QuarantineItemAwareInterface $object
-     *
-     * @return void
-     */
     public function check(QuarantineItemAwareInterface $object): void
     {
         $reasonCodes = $this->validate($object);
@@ -63,8 +48,6 @@ class HealthChecker implements HealthCheckerInterface
     }
 
     /**
-     * @param QuarantineItemAwareInterface $object
-     *
      * @return string[]
      */
     private function validate(QuarantineItemAwareInterface $object): array

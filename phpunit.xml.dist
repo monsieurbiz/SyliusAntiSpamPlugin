@@ -6,7 +6,7 @@
          bootstrap="tests/Application/config/bootstrap.php">
     <testsuites>
         <testsuite name="MonsieurBizSyliusAntiSpamPlugin Test Suite">
-            <directory>tests</directory>
+            <directory>tests/Unit</directory>
         </testsuite>
     </testsuites>
 
@@ -52,10 +52,10 @@
         <!--        <env name="JWT_PASSPHRASE" value="8d17d1cb8344b23ee4645e6d6aec8d3b"/>-->
         <!--        &lt;!&ndash; ###- lexik/jwt-authentication-bundle ### &ndash;&gt;-->
 
-        <!-- ###+ karser/karser-recaptcha3-bundle ### -->
-        <!-- Get your API key and secret from https://g.co/recaptcha/v3 -->
-        <env name="RECAPTCHA3_KEY" value="my_site_key"/>
-        <env name="RECAPTCHA3_SECRET" value="my_secret"/>
-        <!-- ###- karser/karser-recaptcha3-bundle ### -->
+        <!--        &lt;!&ndash; ###+ karser/karser-recaptcha3-bundle ### &ndash;&gt;-->
+        <!--        &lt;!&ndash; Get your API key and secret from https://g.co/recaptcha/v3 &ndash;&gt;-->
+        <!--        <env name="RECAPTCHA3_KEY" value="my_site_key"/>-->
+        <!--        <env name="RECAPTCHA3_SECRET" value="my_secret"/>-->
+        <!--        &lt;!&ndash; ###- karser/karser-recaptcha3-bundle ### &ndash;&gt;-->
     </php>
 </phpunit>

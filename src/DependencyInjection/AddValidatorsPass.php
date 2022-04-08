@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Reference;
 final class AddValidatorsPass implements CompilerPassInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function process(ContainerBuilder $container): void
     {

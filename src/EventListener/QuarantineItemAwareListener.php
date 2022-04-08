@@ -19,9 +19,6 @@ use MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemAwareInterface;
 
 final class QuarantineItemAwareListener
 {
-    /**
-     * @var HealthCheckerInterface
-     */
     private HealthCheckerInterface $healthChecker;
 
     public function __construct(HealthCheckerInterface $healthChecker)
@@ -29,11 +26,6 @@ final class QuarantineItemAwareListener
         $this->healthChecker = $healthChecker;
     }
 
-    /**
-     * @param LifecycleEventArgs $args
-     *
-     * @return void
-     */
     public function postPersist(LifecycleEventArgs $args): void
     {
         $object = $args->getObject();

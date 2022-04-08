@@ -19,8 +19,6 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 interface QuarantineItemRepositoryInterface extends RepositoryInterface
 {
     /**
-     * @param array $emails
-     *
      * @return QuarantineItemInterface[]
      */
     public function findAllByEmails(array $emails): array;

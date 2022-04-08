@@ -20,9 +20,6 @@ class QuarantineItem implements QuarantineItemInterface
 {
     use TimestampableTrait;
 
-    /**
-     * @var int|null
-     */
     private ?int $id = null;
 
     /**
@@ -30,23 +27,14 @@ class QuarantineItem implements QuarantineItemInterface
      */
     private ?array $reasonCodes = null;
 
-    /**
-     * @var int|null
-     */
     private ?int $level = null;
 
-    /**
-     * @var string|null
-     */
     private ?string $email = null;
 
-    /**
-     * @var DateTimeInterface|null
-     */
     private ?DateTimeInterface $liftedAt = null;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getId(): ?int
     {
@@ -54,7 +42,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getReasonCodes(): ?array
     {
@@ -62,7 +50,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setReasonCodes(?array $reasonCodes): void
     {
@@ -70,7 +58,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLevel(): ?int
     {
@@ -78,7 +66,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLevel(?int $level): void
     {
@@ -86,7 +74,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getEmail(): ?string
     {
@@ -94,7 +82,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setEmail(?string $email): void
     {
@@ -102,7 +90,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLiftedAt(): ?DateTimeInterface
     {
@@ -110,7 +98,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLiftedAt(?DateTimeInterface $liftedAt): void
     {
@@ -118,7 +106,7 @@ class QuarantineItem implements QuarantineItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isQuarantined(?int $level = null): bool
     {

@@ -15,18 +15,9 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Validator;
 
 interface ValidatorInterface
 {
-    /**
-     * @param object $object
-     * @param array $options
-     *
-     * @return bool
-     */
     public function isEligible(object $object, array $options = []): bool;
 
     /**
-     * @param object $object
-     * @param array $options
-     *
      * @return array<string>
      */
     public function validate(object $object, array $options = []): array;

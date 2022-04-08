@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@MonsieurBizSyliusAntiSpamPlugin/Resources/config/config.yaml" }
