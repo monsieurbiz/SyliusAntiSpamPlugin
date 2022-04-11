@@ -20,14 +20,8 @@ final class ReCaptcha3Validator implements ValidatorInterface
 {
     public const CAPTCHA_MINIMUM_SCORE = 0.8;
 
-    /**
-     * @var Recaptcha3ValidatorConstraints
-     */
     private Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint;
 
-    /**
-     * @var bool
-     */
     private bool $karserRecaptcha3Enabled;
 
     public function __construct(

@@ -18,38 +18,59 @@ use Exception;
 final class StringHelper
 {
     public string $string = '';
+
     public int $numberOfCharacters = 0;
+
     public int $numberOfLetters = 0;
+
     public int $numberOfCapitalLetters = 0;
+
     public int $numberOfSmallLetters = 0;
+
     public int $numberOfConsonants = 0;
+
     public int $numberOfVoyels = 0;
+
     public int $numberOfNumericCharacters = 0;
+
     public int $numberOfNonAlphanumericCharacters = 0;
+
     public int $numberOfSpecialCharacters = 0;
+
     public float $score = 0.0;
+
     public int $points = 0;
+
     public int $maxPoints = 0;
 
     public int $maxNumberOfConsecutiveCapitalLetters = 0;
+
     public int $maxNumberOfConsecutiveSmallLetters = 0;
+
     public int $maxNumberOfConsecutiveConsonants = 0;
+
     public int $maxNumberOfConsecutiveVoyels = 0;
+
     public int $maxNumberOfConsecutiveNumericCharacters = 0;
+
     public int $maxNumberOfConsecuviteNonAlphanumericCharacters = 0;
+
     public int $maxNumberOfConsecuviteSpecialCharacters = 0;
 
     private int $currentNumberOfConsecutiveCapitalLetters = 0;
+
     private int $currentNumberOfConsecutiveSmallLetters = 0;
+
     private int $currentNumberOfConsecutiveConsonants = 0;
+
     private int $currentNumberOfConsecutiveVoyels = 0;
+
     private int $currentNumberOfConsecutiveNumericCharacters = 0;
+
     private int $currentNumberOfConsecutiveNonAlphanumericCharacters = 0;
+
     private int $currentNumberOfConsecuviteSpecialCharacters = 0;
 
-    /**
-     * @param string $string
-     */
     public function __construct(string $string)
     {
         $this->string = $string;
@@ -61,10 +82,6 @@ final class StringHelper
 
     /**
      * Check a given character to update string statistics.
-     *
-     * @param string $character
-     *
-     * @return void
      */
     private function manageCharacter(string $character): void
     {
@@ -90,10 +107,6 @@ final class StringHelper
 
     /**
      * Update statistics for an alphabetic character.
-     *
-     * @param string $character
-     *
-     * @return void
      */
     private function manageAlphabeticCharacter(string $character): void
     {
@@ -112,10 +125,6 @@ final class StringHelper
 
     /**
      * Update statistics for a numeric character.
-     *
-     * @param string $character
-     *
-     * @return void
      */
     private function manageNumericCharacter(string $character): void
     {
@@ -132,10 +141,6 @@ final class StringHelper
 
     /**
      * Update statistics for a non-alphanumeric character.
-     *
-     * @param string $character
-     *
-     * @return void
      */
     private function manageNonAlphanumericCharacter(string $character): void
     {
@@ -149,8 +154,6 @@ final class StringHelper
 
     /**
      * Reset alphabetic count.
-     *
-     * @return void
      */
     private function resetAlphabeticCount(): void
     {
@@ -162,8 +165,6 @@ final class StringHelper
 
     /**
      * Reset numeric count.
-     *
-     * @return void
      */
     private function resetNumericCount(): void
     {
@@ -172,8 +173,6 @@ final class StringHelper
 
     /**
      * Reset non alpha-numeric count.
-     *
-     * @return void
      */
     private function resetNonAlphanumericCount(): void
     {
@@ -183,10 +182,6 @@ final class StringHelper
 
     /**
      * Manage voyel and consonant characters.
-     *
-     * @param string $character
-     *
-     * @return void
      */
     private function manageTypeOfCharacter(string $character): void
     {
@@ -196,10 +191,6 @@ final class StringHelper
 
     /**
      * Manage capital and small character.
-     *
-     * @param string $character
-     *
-     * @return void
      */
     private function manageCaseOfCharacter(string $character): void
     {
@@ -208,8 +199,6 @@ final class StringHelper
 
     /**
      * Update counters for a small character.
-     *
-     * @return void
      */
     private function updateSmallCharacter(): void
     {
@@ -223,8 +212,6 @@ final class StringHelper
 
     /**
      * Update counters for a capital character.
-     *
-     * @return void
      */
     private function updateCapitalCharacter(): void
     {
@@ -238,8 +225,6 @@ final class StringHelper
 
     /**
      * Update counters for a voyel character.
-     *
-     * @return void
      */
     private function updateVoyelCharacter(): void
     {
@@ -253,8 +238,6 @@ final class StringHelper
 
     /**
      * Update counters for a consonant character.
-     *
-     * @return void
      */
     private function updateConsonantCharacter(): void
     {
@@ -268,8 +251,6 @@ final class StringHelper
 
     /**
      * Update counters for a numeric character.
-     *
-     * @return void
      */
     private function updateNumericCharacter(): void
     {
@@ -282,8 +263,6 @@ final class StringHelper
 
     /**
      * Update counters for a non alpha-numeric character.
-     *
-     * @return void
      */
     private function updateNonAlphanumericCharacter(): void
     {
@@ -297,8 +276,6 @@ final class StringHelper
 
     /**
      * Update counters for a special character.
-     *
-     * @return void
      */
     private function updateSpecialCharacter(): void
     {
@@ -312,8 +289,6 @@ final class StringHelper
 
     /**
      * Process a score to check if string seems to be human readable or not.
-     *
-     * @return void
      */
     private function calculateScore(): void
     {
@@ -331,8 +306,6 @@ final class StringHelper
      * Check if the string has got a coherent number of capital letters
      * Good example : `Monsieur Biz`
      * Bad example : `MoNsIeUr BiZ`.
-     *
-     * @return void
      */
     private function addCapitalLettersScore(): void
     {
@@ -350,8 +323,6 @@ final class StringHelper
      * Check if the string has got a coherent capital letters location
      * Good examples : `Monsieur Biz`, `monsieur biz`, `MONSIEUR BIZ`
      * Bad example : `MoNsIeUr BiZ`.
-     *
-     * @return void
      */
     private function addCapitalizeScore(): void
     {
@@ -370,8 +341,6 @@ final class StringHelper
      * Check if the string has got a coherent consecutive capital letters
      * Good examples : `Monsieur Biz`,
      * Bad example : `MoNsIeUr BiZ`.
-     *
-     * @return void
      */
     private function addConsecutiveCapitalLettersScore(): void
     {
@@ -386,8 +355,6 @@ final class StringHelper
      * Check if the string has got a coherent consecutive capital letters
      * Good examples : `Monsieur Biz`,
      * Bad example : `Mrbz`.
-     *
-     * @return void
      */
     private function addConsonantLettersScore(): void
     {
@@ -402,8 +369,6 @@ final class StringHelper
      * Check if the string has got a coherent consecutive capital letters
      * Good examples : `Monsieur Biz`,
      * Bad example : `Moieur Biz`.
-     *
-     * @return void
      */
     private function addVoyelLettersScore(): void
     {
@@ -418,8 +383,6 @@ final class StringHelper
      * Check if the string has got a coherent consecutive capital letters
      * Good examples : `Monsieur Biz`,
      * Bad example : `Monsieur#Biz`.
-     *
-     * @return void
      */
     private function addSpecialCharactersScore(): void
     {

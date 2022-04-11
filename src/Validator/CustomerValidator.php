@@ -21,7 +21,7 @@ final class CustomerValidator implements ValidatorInterface
     public const STRING_MINIMUM_SCORE = '0.7';
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @TODO implement
@@ -32,7 +32,7 @@ final class CustomerValidator implements ValidatorInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @TODO implement
