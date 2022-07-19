@@ -19,4 +19,4 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\EventListener\QuarantineItemAwareListener:
         tags:
             - name: 'doctrine.event_listener'
-              event: 'postPersist'
+              event: 'prePersist'

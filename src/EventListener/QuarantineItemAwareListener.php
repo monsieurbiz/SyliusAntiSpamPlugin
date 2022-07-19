@@ -26,7 +26,7 @@ final class QuarantineItemAwareListener
         $this->healthChecker = $healthChecker;
     }
 
-    public function postPersist(LifecycleEventArgs $args): void
+    public function prePersist(LifecycleEventArgs $args): void
     {
         $object = $args->getObject();
         if ($object instanceof QuarantineItemAwareInterface) {
