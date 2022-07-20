@@ -1,3 +1,8 @@
+parameters:
+    monsieurbiz.anti_spam.quarantine_item.level_suspected: !php/const \MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface::LEVEL_SUSPECTED
+    monsieurbiz.anti_spam.quarantine_item.level_likely: !php/const \MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface::LEVEL_LIKELY
+    monsieurbiz.anti_spam.quarantine_item.level_proven: !php/const \MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface::LEVEL_PROVEN
+
 services:
     _defaults:
         autowire: true
@@ -10,7 +15,13 @@ services:
         resource: '../../*'
         exclude: '../../{Entity,Migrations}'
 
-    monsieurbiz.anti_spam.validators.registry: '@MonsieurBiz\SyliusAntiSpamPlugin\Registry\ValidatorsRegistry' 
+    monsieurbiz.anti_spam.validators.registry: '@MonsieurBiz\SyliusAntiSpamPlugin\Registry\ValidatorsRegistry'
+    
+    monsieurbiz.anti_spam.quarantineable.registry:
+        class: Sylius\Component\Registry\ServiceRegistry
+        arguments:
+            $className: MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemAwareInterface
+            $context: 'quarantineable'
 
     MonsieurBiz\SyliusAntiSpamPlugin\Email\Sender:
         decorates: 'sylius.email_sender'
@@ -28,3 +39,12 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\EventListener\OrderCompleteListener:
         tags:
             - { name: kernel.event_listener, event: sylius.order.post_complete, method: liftQuarantine }
+
+    MonsieurBiz\SyliusAntiSpamPlugin\Remover\ExceededQuarantineItemsRemover:
+        arguments:
+            $quarantineableRegistry: '@monsieurbiz.anti_spam.quarantineable.registry'
+            $expirationPeriodsByLevel: {
+                '%monsieurbiz.anti_spam.quarantine_item.level_suspected%': '%monsieurbiz.anti_spam.quarantine_item_exceeded_period.suspected%',
+                '%monsieurbiz.anti_spam.quarantine_item.level_likely%': '%monsieurbiz.anti_spam.quarantine_item_exceeded_period.likely%',
+                '%monsieurbiz.anti_spam.quarantine_item.level_proven%': '%monsieurbiz.anti_spam.quarantine_item_exceeded_period.proven%',
+            }

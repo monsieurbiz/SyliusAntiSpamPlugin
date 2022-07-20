@@ -15,8 +15,9 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Entity;
 
 use DateTimeInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TimestampableInterface;
 
-interface QuarantineItemInterface extends ResourceInterface
+interface QuarantineItemInterface extends ResourceInterface, TimestampableInterface
 {
     public const LEVEL_LIFTED = 0;
 

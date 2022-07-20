@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAntiSpamPlugin\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -23,6 +24,28 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        return new TreeBuilder('monsieurbiz_sylius_anti_spam');
+        $treeBuilder = new TreeBuilder('monsieurbiz_sylius_anti_spam');
+
+        /** @var ArrayNodeDefinition $rootNode */
+        $rootNode = $treeBuilder->getRootNode();
+        $this->addExpirationPeriodsSection($rootNode);
+
+        return $treeBuilder;
+    }
+
+    private function addExpirationPeriodsSection(ArrayNodeDefinition $node): void
+    {
+        $node
+            ->children()
+                ->arrayNode('exceeded')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('suspected')->defaultValue('1 year')->cannotBeEmpty()->end()
+                        ->scalarNode('likely')->defaultValue('182 days')->cannotBeEmpty()->end()
+                        ->scalarNode('proven')->defaultValue('90 days')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 }
