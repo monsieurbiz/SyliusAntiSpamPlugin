@@ -1,0 +1,3 @@
+monsieurbiz_anti_spam:
+    resource:
+        update_quarantine_error: 'Something went wrong, please try again.'

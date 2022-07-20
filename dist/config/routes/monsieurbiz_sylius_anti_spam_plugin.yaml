@@ -1,1 +1,3 @@
-# To define
+monsieurbiz_sylius_anti_spam_admin:
+    resource: "@MonsieurBizSyliusAntiSpamPlugin/Resources/config/routes/admin.yaml"
+    prefix: /%sylius_admin.path_name%

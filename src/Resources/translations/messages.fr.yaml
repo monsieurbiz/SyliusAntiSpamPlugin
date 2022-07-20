@@ -8,6 +8,7 @@ monsieurbiz_anti_spam:
         likely: Probable
         suspected: Suspecté
         the_reasons: "Les raisons :"
+        lift_quarantine: 'Lever la quarantaine'
     error:
         missing_captcha_reponse: 'Réponse du captcha manquante.'
         invalid_captcha_score: 'Score du captcha insuffisant.'

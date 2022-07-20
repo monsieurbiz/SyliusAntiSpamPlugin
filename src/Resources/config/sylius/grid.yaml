@@ -1,4 +1,7 @@
 sylius_grid:
+    templates:
+        action:
+            updateQuarantine: "@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Action/update_quarantine.html.twig"
     grids:
         sylius_admin_customer:
             fields:
@@ -8,3 +11,7 @@ sylius_grid:
                     path: quarantineItem
                     options:
                         template: '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Field/quarantine_item.html.twig'
+            actions:
+                subitem:
+                    breaking_quarantine:
+                        type: updateQuarantine
