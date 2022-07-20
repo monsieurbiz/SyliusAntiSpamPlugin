@@ -15,6 +15,7 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin;
 
 use LogicException;
 use MonsieurBiz\SyliusAntiSpamPlugin\DependencyInjection\AddValidatorsPass;
+use MonsieurBiz\SyliusAntiSpamPlugin\DependencyInjection\QuarantineableEntitiesPass;
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
@@ -50,5 +51,6 @@ final class MonsieurBizSyliusAntiSpamPlugin extends Bundle
     {
         parent::build($container);
         $container->addCompilerPass(new AddValidatorsPass());
+        $container->addCompilerPass(new QuarantineableEntitiesPass());
     }
 }

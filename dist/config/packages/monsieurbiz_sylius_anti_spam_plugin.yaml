@@ -1,2 +1,11 @@
 imports:
     - { resource: "@MonsieurBizSyliusAntiSpamPlugin/Resources/config/config.yaml" }
+
+services:
+    # Add the "monsieurbiz_anti_spam.quarantineable" tag on the quarantineable entity (not autoconfigure the entity…)
+    App\Entity\Customer\Customer:
+        tags: ['monsieurbiz_anti_spam.quarantineable']
+
+monsieurbiz_sylius_anti_spam:
+    exceeded:
+        suspected: '1 day'

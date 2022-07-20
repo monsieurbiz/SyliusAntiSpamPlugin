@@ -24,14 +24,20 @@ final class MonsieurBizSyliusAntiSpamExtension extends Extension
     /**
      * @inheritdoc
      */
-    public function load(array $config, ContainerBuilder $container): void
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $container
             ->registerForAutoconfiguration(ValidatorInterface::class)
             ->addTag('monsieurbiz_anti_spam.validator')
         ;
+
+        $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
+
+        $container->setParameter('monsieurbiz.anti_spam.quarantine_item_exceeded_period.suspected', $config['exceeded']['suspected']);
+        $container->setParameter('monsieurbiz.anti_spam.quarantine_item_exceeded_period.likely', $config['exceeded']['likely']);
+        $container->setParameter('monsieurbiz.anti_spam.quarantine_item_exceeded_period.proven', $config['exceeded']['proven']);
     }
 
     /**
