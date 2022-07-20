@@ -24,3 +24,7 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\EventListener\QuarantineInitializeUpdateListener:
         tags:
             - { name: kernel.event_listener, event: monsieurbiz_anti_spam.quarantine_item.initialize_update }
+
+    MonsieurBiz\SyliusAntiSpamPlugin\EventListener\OrderCompleteListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.order.post_complete, method: liftQuarantine }
