@@ -26,6 +26,39 @@ This plugins adds captcha and allows you to manage your spams.
 1. Use the trait `\MonsieurBiz\SyliusAntiSpamPlugin\Entity\CustomerQuarantineItemAwareTrait` in your Customer entity. 
 -->
 
+## Documentation
+
+⚙️ To Be Completed.
+
+### Remove automatically quarantine entities (experimental)
+
+1. Add the `monsieurbiz_anti_spam.quarantineable` tag on our entity, for example for Customer:
+
+```yaml
+    App\Entity\Customer\Customer:
+        tags: ['monsieurbiz_anti_spam.quarantineable']
+```
+
+2. Confirm or adjust the exceeded periods, by quarantine level, before remove the entities. By default, the:
+
+- suspected item is removed after 1 year
+- likely item is removed after 182 days
+- proven item is removed after 90 days
+
+You can change there periods in `config/packages/monsieurbiz_sylius_anti_spam_plugin.yaml`:
+```yaml
+monsieurbiz_sylius_anti_spam:
+    exceeded:
+        suspected: '1 day'
+
+```
+
+3. Add in your crontab the remove command, example:
+
+```bash
+0 */6 * * * /usr/bin/flock -n /tmp/lock.app.remove_exceeded_quarantine bin/console monsieurbiz:anti-spam:remove-exceeded-quarantine-items
+```
+
 ## Contributing
 
 You can open an Issue or a Pull Request if you want! 😘  
