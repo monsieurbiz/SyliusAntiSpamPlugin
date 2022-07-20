@@ -11,7 +11,3 @@ sylius_grid:
                     path: quarantineItem
                     options:
                         template: '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Field/quarantine_item.html.twig'
-            actions:
-                subitem:
-                    breaking_quarantine:
-                        type: updateQuarantine
