@@ -27,6 +27,7 @@
         {{ "monsieurbiz_anti_spam.ui.suspected"|trans }}
     </span>
     {% endif %}
+    {% include '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Action/_update_quarantine_button.html.twig' with { 'options': {'size': 'small', 'form_style': 'display: inline-block', 'without_label': true} } %}
 {% else %}
     <span class="ui green label">
         <i class="check circle outline icon"></i>

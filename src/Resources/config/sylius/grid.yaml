@@ -1,4 +1,7 @@
 sylius_grid:
+    templates:
+        action:
+            updateQuarantine: "@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Action/update_quarantine.html.twig"
     grids:
         sylius_admin_customer:
             fields:

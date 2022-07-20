@@ -1,0 +1,3 @@
+{% if data.quarantineItem and data.quarantineItem.isQuarantined() %}
+    {% include '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Action/_update_quarantine_button.html.twig' with { 'data': data.quarantineItem } %}
+{% endif %}
