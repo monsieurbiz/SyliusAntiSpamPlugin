@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace MonsieurBiz\SyliusAntiSpamPlugin\Migrations;
+namespace App\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
@@ -19,7 +19,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211030112004 extends AbstractMigration
+final class Version20221116163320 extends AbstractMigration
 {
     public function getDescription(): string
     {
