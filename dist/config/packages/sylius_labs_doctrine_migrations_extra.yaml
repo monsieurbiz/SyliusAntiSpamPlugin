@@ -1,0 +1,4 @@
+sylius_labs_doctrine_migrations_extra:
+    migrations:
+        'MonsieurBiz\SyliusAntiSpamPlugin\Migrations': ~
+        'App\Migrations': ['MonsieurBiz\SyliusAntiSpamPlugin\Migrations']
