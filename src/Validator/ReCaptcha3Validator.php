@@ -15,6 +15,7 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Validator;
 
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator as Recaptcha3ValidatorConstraints;
 use ReCaptcha\Response as RecaptchaResponse;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 final class ReCaptcha3Validator implements ValidatorInterface
 {
@@ -22,32 +23,34 @@ final class ReCaptcha3Validator implements ValidatorInterface
 
     private Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint;
 
+    private RequestStack $requestStack;
+
     private bool $karserRecaptcha3Enabled;
 
     public function __construct(
+        RequestStack $requestStack,
         Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint,
         bool $karserRecaptcha3Enabled
     ) {
+        $this->requestStack = $requestStack;
         $this->recaptcha3ValidatorConstraint = $recaptcha3ValidatorConstraint;
         $this->karserRecaptcha3Enabled = $karserRecaptcha3Enabled;
     }
 
     /**
-     * @inheritdoc
+     * Avoid to enable captcha verification in command or fixtures.
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @TODO implement
      */
     public function isEligible(object $object, array $options = []): bool
     {
-        return $this->karserRecaptcha3Enabled;
+        return $this->karserRecaptcha3Enabled && $this->requestStack->getMainRequest();
     }
 
     /**
      * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @TODO implement
      */
     public function validate(object $object, array $options = []): array
     {

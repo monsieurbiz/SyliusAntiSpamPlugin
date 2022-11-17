@@ -24,7 +24,6 @@ final class CustomerValidator implements ValidatorInterface
      * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @TODO implement
      */
     public function isEligible(object $object, array $options = []): bool
     {
@@ -35,7 +34,6 @@ final class CustomerValidator implements ValidatorInterface
      * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @TODO implement
      */
     public function validate(object $object, array $options = []): array
     {
