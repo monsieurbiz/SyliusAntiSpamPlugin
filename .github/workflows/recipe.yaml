@@ -84,7 +84,7 @@ jobs:
       - name: Require plugin without install
         working-directory: ./sylius
         run: |
-          composer require --no-install --no-update monsieurbiz/sylius-anti-spam-plugin="*@dev"
+          composer require --no-install --no-scripts monsieurbiz/sylius-anti-spam-plugin="*@dev"
 
       - name: Composer install
         working-directory: ./sylius
