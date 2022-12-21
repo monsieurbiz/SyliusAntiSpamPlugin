@@ -2,6 +2,8 @@ parameters:
     monsieurbiz.anti_spam.quarantine_item.level_suspected: !php/const \MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface::LEVEL_SUSPECTED
     monsieurbiz.anti_spam.quarantine_item.level_likely: !php/const \MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface::LEVEL_LIKELY
     monsieurbiz.anti_spam.quarantine_item.level_proven: !php/const \MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface::LEVEL_PROVEN
+    monsieurbiz.anti_spam.recaptcha_validator.routes_to_check:
+        - 'sylius_shop_register'
 
 services:
     _defaults:
@@ -48,3 +50,7 @@ services:
                 '%monsieurbiz.anti_spam.quarantine_item.level_likely%': '%monsieurbiz.anti_spam.quarantine_item_exceeded_period.likely%',
                 '%monsieurbiz.anti_spam.quarantine_item.level_proven%': '%monsieurbiz.anti_spam.quarantine_item_exceeded_period.proven%',
             }
+
+    MonsieurBiz\SyliusAntiSpamPlugin\Validator\ReCaptcha3Validator:
+        arguments:
+            $routesToCheck: '%monsieurbiz.anti_spam.recaptcha_validator.routes_to_check%'

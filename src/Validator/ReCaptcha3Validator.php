@@ -27,24 +27,31 @@ final class ReCaptcha3Validator implements ValidatorInterface
 
     private bool $karserRecaptcha3Enabled;
 
+    private array $routesToCheck;
+
     public function __construct(
         RequestStack $requestStack,
         Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint,
-        bool $karserRecaptcha3Enabled
+        bool $karserRecaptcha3Enabled,
+        array $routesToCheck
     ) {
         $this->requestStack = $requestStack;
         $this->recaptcha3ValidatorConstraint = $recaptcha3ValidatorConstraint;
         $this->karserRecaptcha3Enabled = $karserRecaptcha3Enabled;
+        $this->routesToCheck = $routesToCheck;
     }
 
     /**
-     * Avoid to enable captcha verification in command or fixtures.
+     * Avoid to enable captcha verification in command, fixtures and request without capacha field (like guest checkout).
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function isEligible(object $object, array $options = []): bool
     {
-        return $this->karserRecaptcha3Enabled && $this->requestStack->getMainRequest();
+        $mainRequest = $this->requestStack->getMainRequest();
+        $isRouteEligible = $mainRequest && \in_array($mainRequest->attributes->get('_route'), $this->routesToCheck, true);
+
+        return $this->karserRecaptcha3Enabled && $isRouteEligible;
     }
 
     /**
