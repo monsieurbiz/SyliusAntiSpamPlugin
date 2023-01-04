@@ -241,11 +241,11 @@ final class StringHelper
      */
     private function updateConsonantCharacter(): void
     {
-        ++$this->numberOfVoyels;
-        $this->currentNumberOfConsecutiveConsonants = 0;
-        ++$this->currentNumberOfConsecutiveVoyels;
-        if ($this->currentNumberOfConsecutiveVoyels > $this->maxNumberOfConsecutiveVoyels) {
-            $this->maxNumberOfConsecutiveVoyels = $this->currentNumberOfConsecutiveVoyels;
+        ++$this->numberOfConsonants;
+        $this->currentNumberOfConsecutiveVoyels = 0;
+        ++$this->currentNumberOfConsecutiveConsonants;
+        if ($this->currentNumberOfConsecutiveConsonants > $this->maxNumberOfConsecutiveConsonants) {
+            $this->maxNumberOfConsecutiveConsonants = $this->currentNumberOfConsecutiveConsonants;
         }
     }
 
