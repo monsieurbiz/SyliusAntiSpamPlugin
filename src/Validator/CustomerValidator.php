@@ -18,7 +18,7 @@ use Sylius\Component\Core\Model\CustomerInterface;
 
 final class CustomerValidator implements ValidatorInterface
 {
-    public const STRING_MINIMUM_SCORE = '0.7';
+    public const STRING_MINIMUM_SCORE = '0.5';
 
     /**
      * @inheritdoc
