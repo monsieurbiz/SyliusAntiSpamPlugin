@@ -74,7 +74,7 @@ final class StringHelper
     public function __construct(string $string)
     {
         $this->string = $string;
-        foreach (str_split($string) as $character) {
+        foreach (mb_str_split($string, 1, 'UTF-8') as $character) {
             $this->manageCharacter($character);
         }
         $this->calculateScore();
@@ -88,7 +88,7 @@ final class StringHelper
         ++$this->numberOfCharacters;
 
         // Character is a letter
-        if (ctype_alpha($character)) {
+        if (ctype_alpha($character) || preg_match('/^[aeiouyAEIOUYàèìòùÀÈÌÒÙáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛäëïöüÄËÏÖÜ]*$/i', $character)) {
             $this->manageAlphabeticCharacter($character);
 
             return;
@@ -328,7 +328,7 @@ final class StringHelper
     {
         // Check capitalized string
         if (
-            $this->string === ucwords(mb_strtolower($this->string), '- \'')
+            $this->string === ucwords(mb_strtolower($this->string, 'UTF-8'), '- \'')
             || 0 === $this->numberOfCapitalLetters
             || $this->numberOfLetters === $this->numberOfCapitalLetters
         ) {
