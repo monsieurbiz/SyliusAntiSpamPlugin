@@ -54,7 +54,7 @@ final class QuarantineInitializeUpdateListener
     {
         $request = $this->requestStack->getMainRequest();
 
-        $flashBag = $request?->getSession()->getBag('flashes');
+        $flashBag = $request ? $request->getSession()->getBag('flashes') : null;
 
         Assert::isInstanceOf($flashBag, FlashBagInterface::class);
 
