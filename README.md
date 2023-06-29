@@ -24,6 +24,12 @@ This plugins adds captcha and allows you to manage your spams.
 
 <!--
 1. Use the trait `\MonsieurBiz\SyliusAntiSpamPlugin\Entity\CustomerQuarantineItemAwareTrait` in your Customer entity. 
+
+2. Update your env vars with your Recaptcha site key and secret : 
+
+RECAPTCHA3_KEY=my_site_key
+RECAPTCHA3_SECRET=my_secret
+
 -->
 
 ## Documentation
