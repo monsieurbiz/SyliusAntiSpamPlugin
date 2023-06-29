@@ -18,28 +18,25 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Webmozart\Assert\Assert;
 
 final class QuarantineInitializeUpdateListener
 {
     private RequestStack $requestStack;
 
-    private FlashBagInterface $flashBag;
-
     private UrlGeneratorInterface $urlGenerator;
 
     public function __construct(
         RequestStack $requestStack,
-        FlashBagInterface $flashBag,
         UrlGeneratorInterface $urlGenerator
     ) {
         $this->requestStack = $requestStack;
-        $this->flashBag = $flashBag;
         $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(ResourceControllerEvent $resourceControllerEvent): void
     {
-        $this->flashBag->add('error', 'monsieurbiz_anti_spam.resource.update_quarantine_error');
+        $this->getFlashBag()->add('error', 'monsieurbiz_anti_spam.resource.update_quarantine_error');
         $resourceControllerEvent->setResponse(
             new RedirectResponse($this->getRedirectUrl())
         );
@@ -51,5 +48,16 @@ final class QuarantineInitializeUpdateListener
         $referer = $request ? $request->headers->get('referer') : null;
 
         return $referer ?? $this->urlGenerator->generate('sylius_admin_customer_index');
+    }
+
+    private function getFlashBag(): FlashBagInterface
+    {
+        $request = $this->requestStack->getMainRequest();
+
+        $flashBag = $request?->getSession()->getBag('flashes');
+
+        Assert::isInstanceOf($flashBag, FlashBagInterface::class);
+
+        return $flashBag;
     }
 }
