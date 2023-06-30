@@ -2,7 +2,7 @@ monsieurbiz_sylius_anti_spam_admin_update_quarantine:
     path: antispam/update_quarantine
     methods: [PUT]
     defaults:
-        _controller: monsieurbiz_anti_spam.controller.quarantine_item:updateAction
+        _controller: monsieurbiz_anti_spam.controller.quarantine_item::updateAction
         _sylius:
             redirect: referer
             form:
