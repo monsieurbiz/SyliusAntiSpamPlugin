@@ -10,7 +10,7 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-        bind : 
+        bind :
             $karserRecaptcha3Enabled: '%karser_recaptcha3.enabled%'
 
     MonsieurBiz\SyliusAntiSpamPlugin\:
@@ -18,7 +18,7 @@ services:
         exclude: '../../{Entity,Migrations}'
 
     monsieurbiz.anti_spam.validators.registry: '@MonsieurBiz\SyliusAntiSpamPlugin\Registry\ValidatorsRegistry'
-    
+
     monsieurbiz.anti_spam.quarantineable.registry:
         class: Sylius\Component\Registry\ServiceRegistry
         arguments:
@@ -33,7 +33,7 @@ services:
         tags:
             - name: 'doctrine.event_listener'
               event: 'prePersist'
-    
+
     MonsieurBiz\SyliusAntiSpamPlugin\EventListener\QuarantineInitializeUpdateListener:
         tags:
             - { name: kernel.event_listener, event: monsieurbiz_anti_spam.quarantine_item.initialize_update }
@@ -54,3 +54,10 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\Validator\ReCaptcha3Validator:
         arguments:
             $routesToCheck: '%monsieurbiz.anti_spam.recaptcha_validator.routes_to_check%'
+
+    MonsieurBiz\SyliusAntiSpamPlugin\Grid\Filter\QuarantineFilter:
+        tags:
+            -   name: sylius.grid_filter
+                type: quarantine
+                form_type: MonsieurBiz\SyliusAntiSpamPlugin\Form\Type\Filter\QuarantineFilterType
+
