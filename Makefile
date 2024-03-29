@@ -9,6 +9,7 @@ export COMPOSE_PROJECT_NAME=anti-spam
 PLUGIN_NAME=sylius-${COMPOSE_PROJECT_NAME}-plugin
 COMPOSE=docker-compose
 YARN=yarn
+DOCTRINE_MIGRATIONS_NAMESPACE=MonsieurBiz\SyliusAntiSpamPlugin\Migrations
 
 ###
 ### DEVELOPMENT
@@ -141,6 +142,14 @@ test.schema: ## Validate MySQL Schema
 
 test.twig: ## Validate Twig templates
 	${CONSOLE} lint:twig --no-debug templates/ ../../src/Resources/views/
+
+###
+### MIGRATIONS
+### ¯¯¯¯¯¯¯¯¯¯
+
+doctrine.migration.diff: ## create a diff migration file for the plugin
+	${CONSOLE} doctrine:migrations:diff --namespace="${DOCTRINE_MIGRATIONS_NAMESPACE}"
+.PHONY: doctrine.migration.diff
 
 ###
 ### SYLIUS
