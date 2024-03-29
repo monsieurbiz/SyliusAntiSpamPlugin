@@ -14,13 +14,17 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusAntiSpamPlugin\DependencyInjection;
 
 use MonsieurBiz\SyliusAntiSpamPlugin\Validator\ValidatorInterface;
+use Sylius\Bundle\CoreBundle\DependencyInjection\PrependDoctrineMigrationsTrait;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class MonsieurBizSyliusAntiSpamExtension extends Extension
+final class MonsieurBizSyliusAntiSpamExtension extends Extension implements PrependExtensionInterface
 {
+    use PrependDoctrineMigrationsTrait;
+
     /**
      * @inheritdoc
      */
@@ -46,5 +50,27 @@ final class MonsieurBizSyliusAntiSpamExtension extends Extension
     public function getAlias(): string
     {
         return str_replace('monsieur_biz', 'monsieurbiz', parent::getAlias());
+    }
+
+    public function prepend(ContainerBuilder $container): void
+    {
+        $this->prependDoctrineMigrations($container);
+    }
+
+    protected function getMigrationsNamespace(): string
+    {
+        return 'MonsieurBiz\SyliusAntiSpamPlugin\Migrations';
+    }
+
+    protected function getMigrationsDirectory(): string
+    {
+        return '@MonsieurBizSyliusAntiSpamPlugin/Migrations';
+    }
+
+    protected function getNamespacesOfMigrationsExecutedBefore(): array
+    {
+        return [
+            'Sylius\Bundle\CoreBundle\Migrations',
+        ];
     }
 }
