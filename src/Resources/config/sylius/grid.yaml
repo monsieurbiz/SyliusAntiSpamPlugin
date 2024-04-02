@@ -2,6 +2,8 @@ sylius_grid:
     templates:
         action:
             updateQuarantine: "@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Action/update_quarantine.html.twig"
+        filter:
+            quarantine: '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Filter/quarantine.html.twig'
     grids:
         sylius_admin_customer:
             fields:
@@ -11,3 +13,10 @@ sylius_grid:
                     path: quarantineItem
                     options:
                         template: '@MonsieurBizSyliusAntiSpamPlugin/Admin/Grid/Field/quarantine_item.html.twig'
+            filters:
+                quarantine:
+                    type: quarantine
+                    label: monsieurbiz_anti_spam.ui.quarantine
+                    enabled: true
+                    options:
+                        field: quarantineItem
