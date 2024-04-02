@@ -22,17 +22,28 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class CustomerRegistrationFormExtension extends AbstractTypeExtension
 {
+    private bool $karserRecaptcha3Enabled;
+
+    public function __construct(bool $karserRecaptcha3Enabled)
+    {
+        $this->karserRecaptcha3Enabled = $karserRecaptcha3Enabled;
+    }
+
     /**
      * @inheritDoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $constraints = [
+            new Recaptcha3Constraint(['groups' => 'sylius_user_registration']),
+        ];
+        if ($this->karserRecaptcha3Enabled) {
+            $constraints[] = new Assert\NotBlank(['groups' => 'sylius_user_registration']);
+        }
+
         $builder->add('captcha', Recaptcha3Type::class, [
             'mapped' => false,
-            'constraints' => [
-                new Recaptcha3Constraint(['groups' => 'sylius_user_registration']),
-                new Assert\NotBlank(['groups' => 'sylius_user_registration']),
-            ],
+            'constraints' => $constraints,
             'action_name' => 'register',
         ]);
     }
