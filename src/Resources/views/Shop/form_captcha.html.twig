@@ -3,6 +3,8 @@
 {% if errors is not empty %}
     {{ errors|raw }}<br />
 {% endif %}
-<div class="ui info message">
-  {{ 'monsieurbiz_anti_spam.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
-</div>
+{% if form.captcha.vars.enabled -%}
+    <div class="ui info message">
+      {{ 'monsieurbiz_anti_spam.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
+    </div>
+{%- endif %}
