@@ -5,7 +5,7 @@
     "description": "This plugins adds captcha and allows you to manage your spams.",
     "license": "MIT",
     "require": {
-        "karser/karser-recaptcha3-bundle": "^0.1.16",
+        "karser/karser-recaptcha3-bundle": "~0.1.16",
         "php": "^8.0",
         "sylius/sylius": ">=1.11 <1.14"
     },
