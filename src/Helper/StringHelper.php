@@ -129,7 +129,7 @@ final class StringHelper
     private function manageNumericCharacter(string $character): void
     {
         if (mb_strlen($character, 'UTF-8') > 1 && !is_numeric($character)) {
-            throw new Exception(sprintf('The string "%s" is not a single numeric character', $character));
+            throw new Exception(\sprintf('The string "%s" is not a single numeric character', $character));
         }
 
         // Reset what we need to reset

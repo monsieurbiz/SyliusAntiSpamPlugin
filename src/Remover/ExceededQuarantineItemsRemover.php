@@ -16,6 +16,7 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Remover;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemAwareInterface;
 use MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface;
 use MonsieurBiz\SyliusAntiSpamPlugin\Exception\ExceededPeriodNotFoundException;
@@ -55,7 +56,7 @@ final class ExceededQuarantineItemsRemover implements ExceededQuarantineItemsRem
 
     private function removeByEntityClass(QuarantineItemAwareInterface $quarantineableEntity): void
     {
-        $repository = $this->entityManager->getRepository(\get_class($quarantineableEntity));
+        $repository = $this->entityManager->getRepository($quarantineableEntity::class);
         // Retrieve entities with an associated Quarantine Item
         $criteria = new Criteria();
         $criteria->where(Criteria::expr()->neq('quarantineItem', null));
@@ -97,7 +98,7 @@ final class ExceededQuarantineItemsRemover implements ExceededQuarantineItemsRem
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function getTerminalDateByLevel(?int $level): DateTime
     {
