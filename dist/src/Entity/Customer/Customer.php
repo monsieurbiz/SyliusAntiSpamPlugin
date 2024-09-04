@@ -22,6 +22,8 @@ use Sylius\Component\Core\Model\Customer as SyliusCustomer;
  * @ORM\Entity
  * @ORM\Table(name="sylius_customer")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_customer')]
 class Customer extends SyliusCustomer implements QuarantineItemAwareInterface
 {
     use QuarantineItemAwareTrait;

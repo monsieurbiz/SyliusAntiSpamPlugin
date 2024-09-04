@@ -21,7 +21,7 @@ final class ExceededPeriodNotFoundException extends RuntimeException
 
     public function __construct(?int $level = null)
     {
-        parent::__construct(sprintf('Exceeded period not found for level `%s`', $level));
+        parent::__construct(\sprintf('Exceeded period not found for level `%s`', $level));
         $this->level = $level;
     }
 

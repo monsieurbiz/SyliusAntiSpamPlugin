@@ -3,13 +3,27 @@
 <h1 align="center">Anti Spam</h1>
 
 [![Anti Spam Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusAntiSpamPlugin?public)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/blob/master/LICENSE.txt)
-[![Tests](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions/workflows/tests.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions/workflows/tests.yaml)
-[![Security](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions/workflows/security.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions/workflows/security.yaml)
-[![Flex Recipe](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions/workflows/recipe.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions/workflows/recipe.yaml)
+[![Tests Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAntiSpamPlugin/tests.yaml?branch=master&logo=github)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions?query=workflow%3ATests)
+[![Recipe Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAntiSpamPlugin/recipe.yaml?branch=master&label=recipes&logo=github)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions?query=workflow%3ASecurity)
+[![Security Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAntiSpamPlugin/security.yaml?branch=master&label=security&logo=github)](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/actions?query=workflow%3ASecurity)
 
 This plugins adds captcha and allows you to manage your spams.
 
+## Compatibility
+
+| Sylius Version | PHP Version |
+|---|---|
+| 1.11 | 8.0 - 8.1 |
+| 1.12 | 8.1 - 8.2 |
+| 1.13 | 8.1 - 8.2 |
+
 ## Installation
+
+If you want to use our recipes, you can configure your composer.json by running:
+
+```bash
+composer config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]'
+```
 
 ⚙️ To Be Defined.
 
