@@ -21,6 +21,8 @@ trait QuarantineItemAwareTrait
      * @ORM\OneToOne(targetEntity="MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface", fetch="LAZY", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="quarantine_item_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
+    #[ORM\OneToOne(targetEntity: 'MonsieurBiz\SyliusAntiSpamPlugin\Entity\QuarantineItemInterface', fetch: 'LAZY', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: 'quarantine_item_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]
     protected ?QuarantineItemInterface $quarantineItem = null;
 
     public function getQuarantineItem(): ?QuarantineItemInterface
