@@ -54,6 +54,7 @@ services:
     MonsieurBiz\SyliusAntiSpamPlugin\Validator\ReCaptcha3Validator:
         arguments:
             $routesToCheck: '%monsieurbiz.anti_spam.recaptcha_validator.routes_to_check%'
+            $captchaMinimumScore: '%karser_recaptcha3.score_threshold%'
 
     MonsieurBiz\SyliusAntiSpamPlugin\Grid\Filter\QuarantineFilter:
         tags:
