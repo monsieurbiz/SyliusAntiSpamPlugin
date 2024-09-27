@@ -21,24 +21,21 @@ final class ReCaptcha3Validator implements ValidatorInterface
 {
     public const CAPTCHA_MINIMUM_SCORE = 0.8;
 
-    private Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint;
-
-    private RequestStack $requestStack;
-
-    private bool $karserRecaptcha3Enabled;
-
-    private array $routesToCheck;
-
     public function __construct(
-        RequestStack $requestStack,
-        Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint,
-        bool $karserRecaptcha3Enabled,
-        array $routesToCheck
+        private RequestStack $requestStack,
+        private Recaptcha3ValidatorConstraints $recaptcha3ValidatorConstraint,
+        private bool $karserRecaptcha3Enabled,
+        private array $routesToCheck,
+        private ?float $captchaMinimumScore = null,
     ) {
-        $this->requestStack = $requestStack;
-        $this->recaptcha3ValidatorConstraint = $recaptcha3ValidatorConstraint;
-        $this->karserRecaptcha3Enabled = $karserRecaptcha3Enabled;
-        $this->routesToCheck = $routesToCheck;
+        if (null === $captchaMinimumScore) {
+            trigger_deprecation(
+                'monsieurbiz/anti-spam-plugin',
+                '1.0',
+                'Not passing the $captchaMinimumScore argument is deprecated. It will be mandatory in 2.0.'
+            );
+        }
+        $this->captchaMinimumScore = $captchaMinimumScore ?? self::CAPTCHA_MINIMUM_SCORE;
     }
 
     /**
@@ -66,7 +63,7 @@ final class ReCaptcha3Validator implements ValidatorInterface
         $lastResponse = $this->recaptcha3ValidatorConstraint->getLastResponse();
         if (!$lastResponse instanceof RecaptchaResponse) {
             $errors[] = 'monsieurbiz_anti_spam.error.missing_captcha_reponse';
-        } elseif ($lastResponse->getScore() < self::CAPTCHA_MINIMUM_SCORE) {
+        } elseif ($lastResponse->getScore() < $this->captchaMinimumScore) {
             $errors[] = 'monsieurbiz_anti_spam.error.invalid_captcha_score';
         }
 
