@@ -57,6 +57,7 @@ services:
             $captchaMinimumScore: '%karser_recaptcha3.score_threshold%'
 
     MonsieurBiz\SyliusAntiSpamPlugin\Grid\Filter\QuarantineFilter:
+        autoconfigure: false
         tags:
             -   name: sylius.grid_filter
                 type: quarantine
