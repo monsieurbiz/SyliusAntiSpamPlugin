@@ -35,7 +35,11 @@ final class CustomerRegistrationFormExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $constraints = [
-            new Recaptcha3Constraint(['groups' => 'sylius_user_registration']),
+            new Recaptcha3Constraint([
+                'groups' => 'sylius_user_registration',
+                'message' => 'monsieurbiz_anti_spam_plugin.recaptcha3.invalid',
+                'messageMissingValue' => 'monsieurbiz_anti_spam_plugin.recaptcha3.empty',
+            ]),
         ];
         if ($this->karserRecaptcha3Enabled) {
             $constraints[] = new Assert\NotBlank(['groups' => 'sylius_user_registration']);

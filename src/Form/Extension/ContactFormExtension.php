@@ -35,7 +35,10 @@ final class ContactFormExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $constraints = [
-            new Recaptcha3Constraint(),
+            new Recaptcha3Constraint([
+                'message' => 'monsieurbiz_anti_spam_plugin.recaptcha3.invalid',
+                'messageMissingValue' => 'monsieurbiz_anti_spam_plugin.recaptcha3.empty',
+            ]),
         ];
         if ($this->karserRecaptcha3Enabled) {
             $constraints[] = new Assert\NotBlank();
