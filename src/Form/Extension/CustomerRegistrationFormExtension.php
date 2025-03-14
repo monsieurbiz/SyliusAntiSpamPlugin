@@ -18,17 +18,9 @@ use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3 as Recaptcha3Constr
 use Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerRegistrationType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 final class CustomerRegistrationFormExtension extends AbstractTypeExtension
 {
-    private bool $karserRecaptcha3Enabled;
-
-    public function __construct(bool $karserRecaptcha3Enabled)
-    {
-        $this->karserRecaptcha3Enabled = $karserRecaptcha3Enabled;
-    }
-
     /**
      * @inheritDoc
      */
@@ -41,9 +33,6 @@ final class CustomerRegistrationFormExtension extends AbstractTypeExtension
                 'messageMissingValue' => 'monsieurbiz_anti_spam_plugin.recaptcha3.empty',
             ]),
         ];
-        if ($this->karserRecaptcha3Enabled) {
-            $constraints[] = new Assert\NotBlank(['groups' => 'sylius_user_registration']);
-        }
 
         $builder->add('captcha', Recaptcha3Type::class, [
             'mapped' => false,
