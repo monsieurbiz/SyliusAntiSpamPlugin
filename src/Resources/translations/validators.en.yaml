@@ -1,0 +1,4 @@
+monsieurbiz_anti_spam_plugin:
+    recaptcha3:
+        invalid: 'Your computer or network may be sending automated queries'
+        empty: 'The captcha value is missing'
