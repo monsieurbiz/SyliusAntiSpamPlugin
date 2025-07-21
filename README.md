@@ -13,7 +13,7 @@ This plugins adds captcha and allows you to manage your spams.
 
 | Sylius Version | PHP Version |
 |----------------|-------------|
-| 2.0            | 8.2 - 8.3   |
+| 2.0, 2.1       | 8.2 - 8.3   |
 
 ℹ️ For Sylius 1.x, see our [1.x branch](https://github.com/monsieurbiz/SyliusAntiSpamPlugin/tree/1.x) and all 1.x releases.
 
