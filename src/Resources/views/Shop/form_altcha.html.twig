@@ -1,0 +1,8 @@
+{% set form = hookable_metadata.context.form %}
+{% if form.altcha is defined %}
+    {{ form_row(form.altcha, sylius_test_form_attribute('altcha')) }}
+    {% set errors = form_errors(form) %}
+    {% if errors is not empty %}
+        {{ errors|raw }}<br />
+    {% endif %}
+{% endif %}

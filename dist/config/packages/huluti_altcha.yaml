@@ -1,0 +1,11 @@
+huluti_altcha:
+    enable: '%env(bool:ALTCHA_ENABLED)%'
+    hmacKey: '%env(ALTCHA_SECRET)%'
+    floating: false
+    use_stimulus: true
+    altcha_js_path: /bundles/monsieurbizsyliusantispamplugin/js/altcha.js
+    altcha_js_i18n_path: /bundles/monsieurbizsyliusantispamplugin/js/altcha-i18n.js
+
+when@test:
+    huluti_altcha:
+        enable: false

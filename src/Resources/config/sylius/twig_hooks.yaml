@@ -4,8 +4,15 @@ sylius_twig_hooks:
             monsieurbiz_anti_spam_captcha:
                 template: '@MonsieurBizSyliusAntiSpamPlugin/Shop/form_captcha.html.twig'
                 priority: 0
+            monsieurbiz_anti_spam_altcha:
+                template: '@MonsieurBizSyliusAntiSpamPlugin/Shop/form_altcha.html.twig'
+                priority: 10
         
         'sylius_shop.contact.contact_request.content.form':
             monsieurbiz_anti_spam_captcha:
                 template: '@MonsieurBizSyliusAntiSpamPlugin/Shop/form_captcha.html.twig'
                 priority: 0
+            monsieurbiz_anti_spam_altcha:
+                template: '@MonsieurBizSyliusAntiSpamPlugin/Shop/form_altcha.html.twig'
+                priority: 10
+        

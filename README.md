@@ -29,6 +29,11 @@ composer config --no-plugins --json extra.symfony.endpoint '["https://api.github
 composer require monsieurbiz/sylius-anti-spam-plugin
 ```
 
+Run post installation command
+```bash
+cp -r vendor/monsieurbiz/sylius-anti-spam-plugin/dist/config config/
+```
+
 <details>
 <summary>For the installation without flex, follow these additional steps</summary>
 <p>
