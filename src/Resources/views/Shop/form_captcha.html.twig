@@ -1,11 +1,13 @@
 {% set form = hookable_metadata.context.form %}
-{{ form_row(form.captcha, sylius_test_form_attribute('captcha')) }}
-{% set errors = form_errors(form) %}
-{% if errors is not empty %}
-    {{ errors|raw }}<br />
+{% if form.captcha is defined %}
+    {{ form_row(form.captcha, sylius_test_form_attribute('captcha')) }}
+    {% set errors = form_errors(form) %}
+    {% if errors is not empty %}
+        {{ errors|raw }}<br />
+    {% endif %}
+    {% if form.captcha.vars.enabled -%}
+        <div class="alert alert-info mt-3">
+        {{ 'monsieurbiz_anti_spam.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
+        </div>
+    {%- endif %}
 {% endif %}
-{% if form.captcha.vars.enabled -%}
-    <div class="alert alert-info mt-3">
-      {{ 'monsieurbiz_anti_spam.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
-    </div>
-{%- endif %}

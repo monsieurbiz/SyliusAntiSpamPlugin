@@ -13,3 +13,14 @@ Be sure you have the Symfony binary on your machine.
 ```
  curl -sS https://get.symfony.com/cli/installer | bash 
  ```
+
+# Build assets
+
+Install dependencies
+`yarn install`
+
+While developing your JS, you can use : 
+`yarn run watch`
+
+Then generate the final files and push it :
+`yarn run build`
