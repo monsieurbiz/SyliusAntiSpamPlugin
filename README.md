@@ -1,4 +1,4 @@
-[![Banner of Sylius Anti Spam plugin](docs/images/banner.jpg)](https://monsieurbiz.com/agence-web-experte-sylius)
+[![Banner of Sylius Anti Spam plugin](docs/images/antispam-banner.jpg)](https://monsieurbiz.com/agence-web-experte-sylius)
 
 <h1 align="center">Anti Spam</h1>
 
