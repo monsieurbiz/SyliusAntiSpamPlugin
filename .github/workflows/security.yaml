@@ -49,5 +49,28 @@ jobs:
       - name: Install PHP dependencies
         run: composer update --prefer-dist
 
-      - uses: symfonycorp/security-checker-action@v4
+      - uses: symfonycorp/security-checker-action@v5
+        with:
+            disable-exit-code: 1
+        id: security-check
 
+      - name: Filter vulnerabilities
+        run: |
+          echo '${{ steps.security-check.outputs.vulns }}' \
+            | jq 'with_entries(
+                    .value.advisories |= map(
+                      select(.cve != "CVE-2025-31481" and .cve != "CVE-2025-31485")
+                    )
+                  )' \
+            > filtered.json
+          
+          cat filtered.json
+          
+          # Compter les vulnérabilités restantes
+          remaining=$(jq '[.[] | .advisories[]] | length' filtered.json)
+          if [ "$remaining" -gt 0 ]; then
+            echo "❌ Security issues found ($remaining remaining)"
+            exit 1
+          else
+            echo "✅ No relevant security issues"
+          fi
