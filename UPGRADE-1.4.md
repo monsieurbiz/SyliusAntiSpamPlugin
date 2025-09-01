@@ -1,5 +1,7 @@
 # UPGRADE FROM `1.3.1` TO `1.4.0`
 
+- Preconditions: PHP 8.2 support
+
 - Copy config files from dist files, run the command:
 ```
 cp -r vendor/monsieurbiz/sylius-anti-spam-plugin/dist/config config/

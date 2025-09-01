@@ -11,11 +11,10 @@ This plugins adds captcha and allows you to manage your spams.
 
 ## Compatibility
 
-| Sylius Version | PHP Version     |
-|----------------|-----------------|
-| 1.12           | 8.1 - 8.2 - 8.3 |
-| 1.13           | 8.1 - 8.2 - 8.3 |
-| 1.14           | 8.1 - 8.2 - 8.3 |
+| Sylius Version | PHP Version |
+|----------------|-------------|
+| 1.13           | 8.2 - 8.3   |
+| 1.14           | 8.2 - 8.3   |
 
 ## Installation
 
