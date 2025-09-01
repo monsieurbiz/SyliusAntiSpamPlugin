@@ -1,0 +1,14 @@
+{
+  "entrypoints": {
+    "altcha": {
+      "js": [
+        "/public/js/altcha.js"
+      ]
+    },
+    "altcha-i18n": {
+      "js": [
+        "/public/js/altcha-i18n.js"
+      ]
+    }
+  }
+}

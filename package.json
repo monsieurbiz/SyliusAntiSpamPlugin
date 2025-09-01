@@ -1,0 +1,36 @@
+{
+  "name": "monsieurbiz-sylius-anti-spam-plugin",
+  "version": "2.1.0",
+  "description": "A Symfony plugin to integrate anti-spam measures",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "encore production",
+    "watch": "encore dev --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monsieurbiz/SyliusAntiSpamPlugin.git"
+  },
+  "author": "Monsieur Biz <hello@monsieurbiz.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monsieurbiz/SyliusAntiSpamPlugin/issues"
+  },
+  "homepage": "https://github.com/monsieurbiz/SyliusAntiSpamPlugin#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@symfony/webpack-encore": "^5.1.0",
+    "autoprefixer": "^10.4.21",
+    "file-loader": "^6.0.0",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.86.0",
+    "sass-loader": "^16.0.5",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "altcha": "^2.1.0"
+  }
+}

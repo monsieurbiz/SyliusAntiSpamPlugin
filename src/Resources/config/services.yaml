@@ -11,7 +11,9 @@ services:
         autoconfigure: true
         public: false
         bind :
-            $karserRecaptcha3Enabled: '%karser_recaptcha3.enabled%'
+            bool $karserRecaptcha3Enabled: '%karser_recaptcha3.enabled%'
+            bool $altchaEnabled: '%huluti_altcha.enable%'
+            bool $useAltchaSentinel: '%huluti_altcha.use_sentinel%'
 
     MonsieurBiz\SyliusAntiSpamPlugin\:
         resource: '../../*'
@@ -63,3 +65,6 @@ services:
                 type: quarantine
                 form_type: MonsieurBiz\SyliusAntiSpamPlugin\Form\Type\Filter\QuarantineFilterType
 
+    MonsieurBiz\SyliusAntiSpamPlugin\Form\Extension\CustomerRegistrationFormExtension:
+        arguments:
+            $validationGroups: '%sylius.form.type.customer_registration.validation_groups%'
