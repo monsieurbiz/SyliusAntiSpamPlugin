@@ -1,10 +1,12 @@
-{{ form_row(form.captcha, sylius_test_form_attribute('captcha')) }}
-{% set errors = form_errors(form) %}
-{% if errors is not empty %}
-    {{ errors|raw }}<br />
+{% if form.captcha is defined %}
+    {{ form_row(form.captcha, sylius_test_form_attribute('captcha')) }}
+    {% set errors = form_errors(form) %}
+    {% if errors is not empty %}
+        {{ errors|raw }}<br />
+    {% endif %}
+    {% if form.captcha.vars.enabled -%}
+        <div class="ui info message">
+          {{ 'monsieurbiz_anti_spam.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
+        </div>
+    {%- endif %}
 {% endif %}
-{% if form.captcha.vars.enabled -%}
-    <div class="ui info message">
-      {{ 'monsieurbiz_anti_spam.form_captcha.message'|trans({'%privacy_link%': 'https://policies.google.com/privacy', '%terms_link%': 'https://policies.google.com/terms'})|raw }}
-    </div>
-{%- endif %}
