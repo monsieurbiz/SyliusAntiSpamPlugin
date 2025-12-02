@@ -35,7 +35,6 @@ final class Configuration implements ConfigurationInterface
 
     private function addExpirationPeriodsSection(ArrayNodeDefinition $node): void
     {
-        /** @phpstan-ignore-next-line */
         $node
             ->children()
                 ->arrayNode('exceeded')

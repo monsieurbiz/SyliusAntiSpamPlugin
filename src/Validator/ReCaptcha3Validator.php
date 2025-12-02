@@ -15,8 +15,10 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Validator;
 
 use Karser\Recaptcha3Bundle\ReCaptcha\Response as RecaptchaResponse;
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator as Recaptcha3ValidatorConstraints;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Symfony\Component\HttpFoundation\RequestStack;
 
+#[AutoconfigureTag('monsieurbiz_anti_spam.validator')]
 final class ReCaptcha3Validator implements ValidatorInterface
 {
     public const CAPTCHA_MINIMUM_SCORE = 0.8;

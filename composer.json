@@ -5,6 +5,7 @@
     "description": "This plugins adds captcha and allows you to manage your spams.",
     "license": "MIT",
     "require": {
+        "cweagans/composer-patches": "^1.7",
         "karser/karser-recaptcha3-bundle": "~0.2.0",
         "php": "^8.2",
         "sylius/sylius": "~2.0",
@@ -43,6 +44,11 @@
         "symfony": {
             "docker": false,
             "endpoint": ["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master", "flex://defaults"]
+        },
+        "patches": {
+            "huluti/altcha-bundle": {
+                "Fix assets error with dist/altcha.i18n.js": "patches/fix-i18n-altcha.patch"
+            }
         }
     },
     "config": {
@@ -51,7 +57,8 @@
             "symfony/flex": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "cweagans/composer-patches": true
         }
     }
 }

@@ -1,0 +1,24 @@
+diff --git a/assets/controllers/altcha_controller.js b/assets/controllers/altcha_controller.js
+index 4811795..102a3d9 100644
+--- a/assets/controllers/altcha_controller.js
++++ b/assets/controllers/altcha_controller.js
+@@ -1,5 +1,4 @@
+ import {Controller} from '@hotwired/stimulus';
+-import 'altcha/dist/altcha.i18n.js';
+
+ export default class extends Controller {
+
+diff --git a/assets/package.json b/assets/package.json
+index 2f994b8..8bf1b00 100644
+--- a/assets/package.json
++++ b/assets/package.json
+@@ -13,8 +13,7 @@
+       }
+     },
+     "importmap": {
+-      "@hotwired/stimulus": "^3.0.0",
+-      "altcha/dist/altcha.i18n.js": "^2.0.0"
++      "@hotwired/stimulus": "^3.0.0"
+     }
+   },
+   "peerDependencies": {

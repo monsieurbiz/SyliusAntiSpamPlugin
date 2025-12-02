@@ -73,6 +73,8 @@ setup_application:
 	(cd ${APP_DIR} && ${COMPOSER} config minimum-stability dev)
 	(cd ${APP_DIR} && ${COMPOSER} config --no-plugins allow-plugins true)
 	(cd ${APP_DIR} && ${COMPOSER} config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]')
+	cp -R ./patches ${APP_DIR}/patches
+	(cd ${APP_DIR} && ${COMPOSER} config --json extra.patches "{\"huluti/altcha-bundle\":{\"Fix assets error with dist/altcha.i18n.js\":\"patches/fix-i18n-altcha.patch\"}}")
 	(cd ${APP_DIR} && ${COMPOSER} require --no-install --no-scripts --no-progress sylius/sylius="~${SYLIUS_VERSION}") # Make sure to install the required version of sylius because the sylius-standard has a soft constraint
 	$(MAKE) ${APP_DIR}/.php-version
 	$(MAKE) ${APP_DIR}/php.ini
