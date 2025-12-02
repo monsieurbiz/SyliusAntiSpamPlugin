@@ -15,7 +15,9 @@ namespace MonsieurBiz\SyliusAntiSpamPlugin\Validator;
 
 use MonsieurBiz\SyliusAntiSpamPlugin\Helper\StringHelper;
 use Sylius\Component\Core\Model\CustomerInterface;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
+#[AutoconfigureTag('monsieurbiz_anti_spam.validator')]
 final class CustomerValidator implements ValidatorInterface
 {
     public const STRING_MINIMUM_SCORE = '0.2';
